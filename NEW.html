@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Richard A. Price | Purdue University</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink:    #FF2D78;
+    --coral:   #FF5C35;
+    --orange:  #FF8C00;
+    --yellow:  #FFD100;
+    --lime:    #7ED321;
+    --teal:    #00C9B1;
+    --sky:     #00AAFF;
+    --purple:  #8B00FF;
+    --lavender:#C044FF;
+    --white:   #FFFFFF;
+    --offwhite:#FFF8F0;
+    --ink:     #1A1A2E;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--offwhite); color: var(--ink); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: var(--white);
+    border-bottom: 4px solid transparent;
+    border-image: linear-gradient(90deg, var(--pink), var(--orange), var(--yellow), var(--teal), var(--sky), var(--purple)) 1;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.9rem 4rem;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900;
+    background: linear-gradient(90deg, var(--pink), var(--purple));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+  .nav-links a { color: var(--ink); text-decoration: none; font-size: 0.78rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--pink); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #FF2D78 0%, #FF5C35 30%, #FF8C00 55%, #C044FF 80%, #8B00FF 100%);
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; padding: 7rem 4rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before { content:''; position:absolute; top:-80px; left:-80px; width:400px; height:400px; border-radius:50%; background:rgba(255,255,255,0.08); }
+  .hero::after { content:''; position:absolute; bottom:-120px; right:-80px; width:500px; height:500px; border-radius:50%; background:rgba(255,255,255,0.06); }
+  .hero-text { position: relative; z-index: 2; }
+  .hero-tag {
+    display: inline-block; background: rgba(255,255,255,0.2); backdrop-filter: blur(8px);
+    color: white; border: 1px solid rgba(255,255,255,0.4);
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+    padding: 0.45rem 1.1rem; border-radius: 30px; margin-bottom: 1.5rem;
+    animation: fadeUp 0.5s ease both;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    color: var(--white); line-height: 1.05; font-weight: 900; margin-bottom: 1rem;
+    animation: fadeUp 0.5s 0.1s ease both;
+  }
+  .hero-subtitle { font-size: 1.05rem; color: rgba(255,255,255,0.9); font-weight: 400; margin-bottom: 0.4rem; animation: fadeUp 0.5s 0.2s ease both; }
+  .hero-pronouns { font-size: 0.82rem; color: rgba(255,255,255,0.65); margin-bottom: 1.75rem; animation: fadeUp 0.5s 0.25s ease both; }
+  .hero-bio { font-size: 1rem; color: rgba(255,255,255,0.85); line-height: 1.75; max-width: 480px; margin-bottom: 2.5rem; animation: fadeUp 0.5s 0.3s ease both; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.5s 0.4s ease both; }
+  .btn-white { background: var(--white); color: var(--pink); padding: 0.85rem 2rem; border: none; border-radius: 30px; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.9rem; cursor: pointer; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+  .btn-white:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.2); }
+  .btn-ghost { border: 2px solid rgba(255,255,255,0.6); color: var(--white); padding: 0.85rem 2rem; border-radius: 30px; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.9rem; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.15); }
+
+  .hero-visual { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; animation: fadeUp 0.7s 0.2s ease both; }
+  .avatar-wrap { position: relative; display: inline-block; }
+  .avatar-ring { width: 340px; height: 340px; border-radius: 50%; padding: 6px; background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.3) 50%, #fff 100%); box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+  .avatar-ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+  .avatar-badge { position: absolute; bottom: 16px; right: -12px; background: var(--yellow); color: var(--ink); padding: 0.5rem 1.1rem; border-radius: 30px; font-size: 0.78rem; font-weight: 700; white-space: nowrap; box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+  .avatar-badge2 { position: absolute; top: 20px; left: -20px; background: var(--teal); color: white; padding: 0.45rem 1rem; border-radius: 30px; font-size: 0.75rem; font-weight: 700; white-space: nowrap; box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+
+  /* STATS */
+  .stats-bar { background: var(--ink); padding: 2rem 4rem; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; text-align: center; }
+  .stat-item { padding: 1rem; border-right: 1px solid rgba(255,255,255,0.08); }
+  .stat-item:last-child { border-right: none; }
+  .stat-number { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; line-height: 1; margin-bottom: 0.35rem; }
+  .stat-item:nth-child(1) .stat-number { color: var(--pink); }
+  .stat-item:nth-child(2) .stat-number { color: var(--yellow); }
+  .stat-item:nth-child(3) .stat-number { color: var(--teal); }
+  .stat-item:nth-child(4) .stat-number { color: var(--lavender); }
+  .stat-item:nth-child(5) .stat-number { color: var(--lime); }
+  .stat-label { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+
+  /* SHARED */
+  section { padding: 6rem 4rem; }
+  .section-eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.6rem; display: block; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900; line-height: 1.1; margin-bottom: 2.5rem; }
+
+  /* ABOUT - warm yellow */
+  #about { background: #FFF4D6; }
+  #about .section-eyebrow { color: var(--coral); }
+  #about .section-title em { font-style: italic; color: var(--orange); }
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
+  .about-text p { font-size: 1.05rem; line-height: 1.85; color: rgba(26,26,46,0.8); margin-bottom: 1.2rem; }
+  .highlight-cards { display: flex; flex-direction: column; gap: 1rem; }
+  .hcard { padding: 1.5rem 1.5rem 1.5rem 1.75rem; border-radius: 12px; border-left: 5px solid; transition: transform 0.2s, box-shadow 0.2s; }
+  .hcard:hover { transform: translateX(6px); box-shadow: 4px 4px 20px rgba(0,0,0,0.08); }
+  .hcard:nth-child(1) { background: #FFE5ED; border-color: var(--pink); }
+  .hcard:nth-child(2) { background: #E5F9F6; border-color: var(--teal); }
+  .hcard:nth-child(3) { background: #F0E5FF; border-color: var(--purple); }
+  .hcard h4 { font-weight: 700; font-size: 0.92rem; margin-bottom: 0.3rem; }
+  .hcard:nth-child(1) h4 { color: var(--pink); }
+  .hcard:nth-child(2) h4 { color: var(--teal); }
+  .hcard:nth-child(3) h4 { color: var(--purple); }
+  .hcard p { font-size: 0.85rem; color: rgba(26,26,46,0.7); line-height: 1.55; }
+
+  /* MEDIA - lime green */
+  #media { background: linear-gradient(135deg, #EDFFF4 0%, #E0FFF8 100%); }
+  #media .section-eyebrow { color: var(--lime); }
+  #media .section-title em { color: var(--teal); }
+  .media-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+  .media-card { background: var(--white); border-radius: 14px; padding: 1.5rem; border-top: 4px solid; box-shadow: 0 4px 16px rgba(0,0,0,0.06); transition: transform 0.2s; }
+  .media-card:hover { transform: translateY(-4px); }
+  .media-card:nth-child(1) { border-color: var(--teal); }
+  .media-card:nth-child(2) { border-color: var(--pink); }
+  .media-card:nth-child(3) { border-color: var(--orange); }
+  .media-card:nth-child(4) { border-color: var(--purple); }
+  .media-card:nth-child(5) { border-color: var(--sky); }
+  .media-card h4 { font-weight: 700; font-size: 0.9rem; color: var(--ink); margin-bottom: 0.4rem; }
+  .media-card p { font-size: 0.82rem; color: rgba(26,26,46,0.6); line-height: 1.5; margin-bottom: 0.75rem; }
+  .media-card a { font-size: 0.78rem; font-weight: 600; color: var(--sky); text-decoration: none; }
+  .media-card a:hover { text-decoration: underline; }
+
+  /* EDUCATION - sky/lavender */
+  #education { background: linear-gradient(135deg, #E0F4FF 0%, #EDE5FF 100%); }
+  #education .section-eyebrow { color: var(--sky); }
+  #education .section-title em { color: var(--sky); }
+  .edu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-bottom: 3rem; }
+  .edu-card { background: var(--white); padding: 1.6rem; border-radius: 14px; border-top: 4px solid; box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; }
+  .edu-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+  .edu-card:nth-child(1) { border-color: var(--purple); }
+  .edu-card:nth-child(2) { border-color: var(--sky); }
+  .edu-card:nth-child(3) { border-color: var(--teal); }
+  .edu-card:nth-child(4) { border-color: var(--orange); }
+  .edu-card:nth-child(5) { border-color: var(--pink); }
+  .edu-year { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .edu-card:nth-child(1) .edu-year { color: var(--purple); }
+  .edu-card:nth-child(2) .edu-year { color: var(--sky); }
+  .edu-card:nth-child(3) .edu-year { color: var(--teal); }
+  .edu-card:nth-child(4) .edu-year { color: var(--orange); }
+  .edu-card:nth-child(5) .edu-year { color: var(--pink); }
+  .edu-degree { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem; }
+  .edu-school { font-size: 0.82rem; color: rgba(26,26,46,0.6); line-height: 1.45; }
+  .edu-detail { font-size: 0.78rem; color: rgba(26,26,46,0.45); margin-top: 0.35rem; font-style: italic; }
+  .certs-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--purple); margin-bottom: 1rem; display: block; }
+  .certs-wrap { display: flex; flex-wrap: wrap; gap: 0.65rem; }
+  .cert-pill { background: var(--white); padding: 0.45rem 1rem; border-radius: 30px; font-size: 0.8rem; font-weight: 600; border: 2px solid; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  .cert-pill:nth-child(1) { border-color: var(--purple); color: var(--purple); }
+  .cert-pill:nth-child(2) { border-color: var(--sky); color: var(--sky); }
+  .cert-pill:nth-child(3) { border-color: var(--teal); color: var(--teal); }
+  .cert-pill:nth-child(4) { border-color: var(--orange); color: var(--orange); }
+  .cert-pill:nth-child(5) { border-color: var(--pink); color: var(--pink); }
+  .cert-pill:nth-child(6) { border-color: var(--lime); color: var(--lime); }
+  .cert-pill:nth-child(7) { border-color: var(--coral); color: var(--coral); }
+
+  /* RESEARCH - soft rose */
+  #research { background: linear-gradient(135deg, #FFF0F3 0%, #FFE8F5 100%); }
+  #research .section-eyebrow { color: var(--pink); }
+  #research .section-title em { color: var(--coral); }
+  .research-intro { font-size: 1rem; line-height: 1.8; color: rgba(26,26,46,0.75); max-width: 780px; margin-bottom: 2.5rem; }
+  .pubs-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .pub-tab { padding: 0.4rem 1.1rem; border-radius: 20px; font-size: 0.78rem; font-weight: 600; cursor: pointer; border: 2px solid rgba(26,26,46,0.15); color: rgba(26,26,46,0.5); background: white; transition: all 0.2s; }
+  .pub-tab.active { background: var(--pink); border-color: var(--pink); color: white; }
+  .pubs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1.25rem; }
+  .pub-card { background: var(--white); border-radius: 14px; padding: 1.6rem; border-top: 4px solid; box-shadow: 0 4px 16px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; }
+  .pub-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+  .pub-card:nth-child(1) { border-color: var(--pink); }
+  .pub-card:nth-child(2) { border-color: var(--sky); }
+  .pub-card:nth-child(3) { border-color: var(--teal); }
+  .pub-card:nth-child(4) { border-color: var(--orange); }
+  .pub-card:nth-child(5) { border-color: var(--purple); }
+  .pub-card:nth-child(6) { border-color: var(--coral); }
+  .pub-card:nth-child(7) { border-color: var(--lime); }
+  .pub-card:nth-child(8) { border-color: var(--lavender); }
+  .pub-card:nth-child(9) { border-color: var(--yellow); }
+  .pub-card:nth-child(10) { border-color: var(--pink); }
+  .pub-status { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 0.2rem 0.65rem; border-radius: 20px; margin-bottom: 0.5rem; }
+  .status-published { background: #E5F9F6; color: var(--teal); }
+  .status-press { background: #FFF0F3; color: var(--pink); }
+  .status-review { background: #F0E5FF; color: var(--purple); }
+  .pub-year { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--pink); margin-bottom: 0.5rem; }
+  .pub-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--ink); line-height: 1.45; margin-bottom: 0.5rem; }
+  .pub-journal { font-size: 0.8rem; color: rgba(26,26,46,0.5); font-style: italic; margin-bottom: 0.4rem; }
+  .pub-authors { font-size: 0.77rem; color: rgba(26,26,46,0.45); }
+  .pub-link { display: inline-block; margin-top: 0.7rem; font-size: 0.77rem; font-weight: 600; color: var(--sky); text-decoration: none; }
+  .pub-link:hover { text-decoration: underline; }
+  .grants-header { font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin: 3.5rem 0 1.25rem; display: block; }
+  .grants-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+  .grant-card { background: var(--white); border-radius: 14px; padding: 1.6rem; border-left: 5px solid; box-shadow: 0 4px 16px rgba(0,0,0,0.06); transition: transform 0.2s; }
+  .grant-card:hover { transform: translateY(-3px); }
+  .grant-card:nth-child(1) { border-color: var(--teal); }
+  .grant-card:nth-child(2) { border-color: var(--orange); }
+  .grant-card:nth-child(3) { border-color: var(--purple); }
+  .grant-card:nth-child(4) { border-color: var(--pink); }
+  .grant-card h4 { font-weight: 700; font-size: 0.88rem; margin-bottom: 0.4rem; }
+  .grant-card:nth-child(1) h4 { color: var(--teal); }
+  .grant-card:nth-child(2) h4 { color: var(--orange); }
+  .grant-card:nth-child(3) h4 { color: var(--purple); }
+  .grant-card:nth-child(4) h4 { color: var(--pink); }
+  .grant-card p { font-size: 0.82rem; color: rgba(26,26,46,0.65); line-height: 1.55; }
+  .grant-amount { display: inline-block; margin-top: 0.6rem; font-size: 0.78rem; font-weight: 700; color: var(--lime); background: #EDFFF4; padding: 0.2rem 0.65rem; border-radius: 20px; }
+
+  /* COURSES - lime/teal */
+  #courses { background: linear-gradient(135deg, #EDFFF4 0%, #E0FFF8 100%); }
+  #courses .section-eyebrow { color: var(--lime); }
+  #courses .section-title em { color: var(--teal); }
+  .courses-stack { display: flex; flex-direction: column; gap: 1rem; }
+  .course-card { background: var(--white); border-radius: 14px; padding: 1.5rem 2rem; display: flex; align-items: center; gap: 2rem; box-shadow: 0 4px 16px rgba(0,0,0,0.05); border-left: 5px solid; transition: transform 0.2s, box-shadow 0.2s; }
+  .course-card:hover { transform: translateX(8px); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
+  .course-card:nth-child(1) { border-color: var(--teal); }
+  .course-card:nth-child(2) { border-color: var(--lime); }
+  .course-card:nth-child(3) { border-color: var(--sky); }
+  .course-card:nth-child(4) { border-color: var(--purple); }
+  .course-num { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 900; min-width: 120px; }
+  .course-card:nth-child(1) .course-num { color: var(--teal); }
+  .course-card:nth-child(2) .course-num { color: var(--lime); }
+  .course-card:nth-child(3) .course-num { color: var(--sky); }
+  .course-card:nth-child(4) .course-num { color: var(--purple); }
+  .course-body { flex: 1; }
+  .course-body h4 { font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.2rem; }
+  .course-body p { font-size: 0.82rem; color: rgba(26,26,46,0.55); }
+  .course-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .course-badge { font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 0.25rem 0.8rem; border-radius: 20px; }
+  .badge-ug { background: #E0FFF8; color: var(--teal); }
+  .badge-grad { background: #F0E5FF; color: var(--purple); }
+
+  /* PRESENTATIONS - orange */
+  #presentations { background: linear-gradient(135deg, #FFF5E0 0%, #FFE8CC 100%); }
+  #presentations .section-eyebrow { color: var(--orange); }
+  #presentations .section-title em { color: var(--coral); }
+  .pres-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .pres-tab { padding: 0.4rem 1.1rem; border-radius: 20px; font-size: 0.78rem; font-weight: 600; cursor: pointer; border: 2px solid rgba(26,26,46,0.15); color: rgba(26,26,46,0.5); background: white; transition: all 0.2s; }
+  .pres-tab.active { background: var(--orange); border-color: var(--orange); color: white; }
+  .pres-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .pres-item { background: var(--white); border-radius: 12px; padding: 1.25rem 1.5rem; border-left: 4px solid; box-shadow: 0 3px 12px rgba(0,0,0,0.05); transition: transform 0.2s; }
+  .pres-item:hover { transform: translateX(5px); }
+  .pres-item.intl { border-color: var(--sky); }
+  .pres-item.natl { border-color: var(--orange); }
+  .pres-item.invited { border-color: var(--pink); }
+  .pres-year { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.3rem; }
+  .pres-item.intl .pres-year { color: var(--sky); }
+  .pres-item.natl .pres-year { color: var(--orange); }
+  .pres-item.invited .pres-year { color: var(--pink); }
+  .pres-title { font-size: 0.88rem; font-weight: 600; color: var(--ink); line-height: 1.4; margin-bottom: 0.25rem; }
+  .pres-venue { font-size: 0.78rem; color: rgba(26,26,46,0.5); font-style: italic; }
+
+  /* SERVICE - sky */
+  #service { background: linear-gradient(135deg, #E0F4FF 0%, #EDE5FF 100%); }
+  #service .section-eyebrow { color: var(--sky); }
+  #service .section-title em { color: var(--purple); }
+  .service-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+  .service-card { background: var(--white); border-radius: 14px; padding: 1.5rem; border-top: 4px solid; box-shadow: 0 4px 16px rgba(0,0,0,0.06); transition: transform 0.2s; }
+  .service-card:hover { transform: translateY(-3px); }
+  .service-card:nth-child(1) { border-color: var(--sky); }
+  .service-card:nth-child(2) { border-color: var(--purple); }
+  .service-card:nth-child(3) { border-color: var(--teal); }
+  .service-card:nth-child(4) { border-color: var(--pink); }
+  .service-card h4 { font-weight: 700; font-size: 0.88rem; margin-bottom: 0.75rem; }
+  .service-card:nth-child(1) h4 { color: var(--sky); }
+  .service-card:nth-child(2) h4 { color: var(--purple); }
+  .service-card:nth-child(3) h4 { color: var(--teal); }
+  .service-card:nth-child(4) h4 { color: var(--pink); }
+  .service-item { font-size: 0.82rem; color: rgba(26,26,46,0.7); line-height: 1.5; padding: 0.35rem 0; border-bottom: 1px solid rgba(26,26,46,0.06); }
+  .service-item:last-child { border-bottom: none; }
+
+  /* AWARDS - purple */
+  #awards { background: linear-gradient(135deg, #F5EDFF 0%, #EDE5FF 100%); }
+  #awards .section-eyebrow { color: var(--purple); }
+  #awards .section-title em { color: var(--lavender); }
+  .awards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.25rem; }
+  .award-card { background: var(--white); padding: 1.4rem 1.5rem; border-radius: 14px; display: flex; gap: 1rem; align-items: flex-start; box-shadow: 0 4px 16px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; }
+  .award-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.1); }
+  .award-year { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 0.88rem; padding: 0.35rem 0.65rem; border-radius: 6px; white-space: nowrap; flex-shrink: 0; color: white; }
+  .award-card:nth-child(1) .award-year { background: var(--pink); }
+  .award-card:nth-child(2) .award-year { background: var(--orange); }
+  .award-card:nth-child(3) .award-year { background: var(--teal); }
+  .award-card:nth-child(4) .award-year { background: var(--purple); }
+  .award-card:nth-child(5) .award-year { background: var(--sky); }
+  .award-card:nth-child(6) .award-year { background: var(--coral); }
+  .award-card:nth-child(7) .award-year { background: var(--lavender); }
+  .award-card:nth-child(8) .award-year { background: var(--yellow); color: var(--ink); }
+  .award-text h4 { font-size: 0.88rem; font-weight: 600; color: var(--ink); line-height: 1.4; }
+  .award-text p { font-size: 0.77rem; color: rgba(26,26,46,0.5); margin-top: 0.2rem; }
+
+  /* CONTACT - warm gradient */
+  #contact { background: linear-gradient(135deg, #FFF5CC 0%, #FFE5ED 50%, #EDE5FF 100%); }
+  #contact .section-eyebrow { color: var(--coral); }
+  #contact .section-title em { color: var(--pink); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-info p { font-size: 1rem; color: rgba(26,26,46,0.75); line-height: 1.8; margin-bottom: 2rem; }
+  .contact-details { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-row { display: flex; align-items: flex-start; gap: 1rem; }
+  .contact-icon-wrap { width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+  .contact-row:nth-child(1) .contact-icon-wrap { background: #FFE5ED; }
+  .contact-row:nth-child(2) .contact-icon-wrap { background: #E0FFF8; }
+  .contact-row:nth-child(3) .contact-icon-wrap { background: #EDE5FF; }
+  .contact-text { display: flex; flex-direction: column; gap: 0.15rem; }
+  .contact-text span { font-size: 0.88rem; color: rgba(26,26,46,0.7); line-height: 1.5; }
+  .contact-text a { color: var(--sky); text-decoration: none; font-size: 0.88rem; font-weight: 600; }
+  .contact-text a:hover { text-decoration: underline; }
+  .social-row { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 2rem; }
+  .social-pill { padding: 0.45rem 1.1rem; border-radius: 30px; font-size: 0.8rem; font-weight: 600; text-decoration: none; border: 2px solid; transition: transform 0.2s; }
+  .social-pill:hover { transform: translateY(-2px); }
+  .social-pill.li { color: var(--sky); border-color: var(--sky); }
+  .social-pill.rg { color: var(--teal); border-color: var(--teal); }
+  .social-pill.ig { color: var(--pink); border-color: var(--pink); }
+  .social-pill.tw { color: var(--purple); border-color: var(--purple); }
+  .social-pill.orcid { color: var(--lime); border-color: var(--lime); }
+  .contact-form { display: flex; flex-direction: column; gap: 0.9rem; }
+  .contact-form input, .contact-form textarea { background: var(--white); border: 2px solid rgba(26,26,46,0.1); border-radius: 10px; padding: 0.9rem 1.2rem; color: var(--ink); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; transition: border-color 0.2s; outline: none; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--pink); }
+  .contact-form textarea { min-height: 120px; resize: vertical; }
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(26,26,46,0.3); }
+  .btn-send { align-self: flex-start; background: linear-gradient(135deg, var(--pink), var(--purple)); color: white; padding: 0.9rem 2.2rem; border: none; border-radius: 30px; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.9rem; cursor: pointer; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 16px rgba(255,45,120,0.3); }
+  .btn-send:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,45,120,0.4); }
+
+  /* FOOTER */
+  footer { background: linear-gradient(90deg, #1A1A2E 0%, #2D1B4E 100%); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-name { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1rem; background: linear-gradient(90deg, var(--pink), var(--lavender)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  footer p { font-size: 0.8rem; color: rgba(255,255,255,0.35); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  .badge-intl  { background: #E0F4FF; color: var(--sky); }
+  .badge-natl  { background: #FFF5E0; color: var(--orange); }
+  .badge-invited { background: #FFE5ED; color: var(--pink); }
+  .pres-slide-intl   { background: linear-gradient(135deg, #E0F4FF 0%, #EDE5FF 100%) !important; }
+  .pres-slide-natl   { background: linear-gradient(135deg, #FFF5E0 0%, #FFE8CC 100%) !important; }
+  .pres-slide-invited { background: linear-gradient(135deg, #FFE5ED 0%, #FFE8F5 100%) !important; }
+
+  /* SERVICES */
+  #services { background: linear-gradient(135deg, #E5F9F6 0%, #EDE5FF 100%); }
+  #services .section-eyebrow { color: var(--teal); }
+  #services .section-title em { color: var(--purple); }
+  .services-coming { display: flex; justify-content: center; align-items: center; padding: 3rem 0; }
+  .services-coming-inner { background: var(--white); border-radius: 20px; padding: 3rem 4rem; text-align: center; max-width: 560px; box-shadow: 0 8px 32px rgba(0,0,0,0.07); border-top: 5px solid var(--teal); }
+  .services-coming-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .services-coming-inner h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: var(--ink); margin-bottom: 1rem; }
+  .services-coming-inner p { font-size: 0.95rem; color: rgba(26,26,46,0.65); line-height: 1.75; }
+
+  /* PUBLICATION CAROUSEL */
+  .pub-carousel-wrap { background: var(--white); border-radius: 20px; padding: 2rem; box-shadow: 0 8px 32px rgba(255,45,120,0.1); border: 2px solid rgba(255,45,120,0.1); overflow: hidden; }
+  .pub-carousel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+  .pub-carousel-label { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 900; color: var(--ink); }
+  .pub-carousel-controls { display: flex; align-items: center; gap: 0.75rem; }
+  .pub-btn { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--pink); background: transparent; color: var(--pink); font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-weight: 700; }
+  .pub-btn:hover { background: var(--pink); color: white; }
+  .pub-pause-btn { width: auto; padding: 0 0.9rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+  .pub-counter { font-size: 0.82rem; font-weight: 600; color: rgba(26,26,46,0.5); min-width: 60px; text-align: center; }
+  .pub-viewport { overflow: hidden; border-radius: 12px; position: relative; }
+  .pub-track { display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
+  .pub-slide { min-width: 100%; padding: 2rem 2.5rem; background: linear-gradient(135deg, #FFF0F3 0%, #FFE8F5 100%); border-radius: 12px; box-sizing: border-box; min-height: 220px; display: flex; flex-direction: column; justify-content: center; }
+  .pub-badge { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 20px; margin-bottom: 1rem; width: fit-content; }
+  .badge-pub { background: #E5F9F6; color: var(--teal); }
+  .badge-press { background: #FFE5ED; color: var(--pink); }
+  .pub-slide-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); line-height: 1.45; margin-bottom: 0.6rem; }
+  .pub-slide-journal { font-size: 0.9rem; color: rgba(26,26,46,0.55); font-style: italic; margin-bottom: 0.4rem; }
+  .pub-slide-authors { font-size: 0.82rem; color: rgba(26,26,46,0.4); margin-bottom: 0.6rem; }
+  .pub-slide-link { font-size: 0.82rem; font-weight: 700; color: var(--sky); text-decoration: none; }
+  .pub-slide-link:hover { text-decoration: underline; }
+  .pub-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.25rem; flex-wrap: wrap; }
+  .pub-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,45,120,0.2); border: none; cursor: pointer; transition: all 0.2s; padding: 0; }
+  .pub-dot.active { background: var(--pink); transform: scale(1.3); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0.9rem 1.5rem; } .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; text-align: center; }
+    .hero-bio { max-width: 100%; } .hero-ctas { justify-content: center; }
+    .hero-visual { margin-top: 2rem; }
+    .stats-bar { grid-template-columns: repeat(3, 1fr); padding: 1.5rem; }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    section { padding: 4rem 1.5rem; }
+    .about-grid, .edu-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    footer { padding: 1.5rem; flex-direction: column; text-align: center; }
+    .pub-slide { padding: 1.5rem; }
+    .pub-slide-title { font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Dr. Richard A. Price</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#courses">Teaching</a></li>
+    <li><a href="#presentations">Presentations</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-tag">Special Education · ABA · Transition to Work · LGBTQ+ Advocacy</div>
+    <h1>Dr. Richard<br>A. Price</h1>
+    <p class="hero-subtitle">Assistant Professor of Special Education &amp; Applied Behavior Analysis</p>
+    <p class="hero-pronouns">he/they &nbsp;·&nbsp; Ph.D., CRC-CVE, BCBA-D &nbsp;·&nbsp; Purdue University College of Education</p>
+    <p class="hero-bio">Scholar, educator, and advocate with over a decade of experience supporting the transition from school to work for individuals with disabilities. Bringing rigorous research and genuine humanity to every room.</p>
+    <div class="hero-ctas">
+      <a href="#research" class="btn-white">View Research</a>
+      <a href="#contact" class="btn-ghost">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="avatar-wrap">
+      <div class="avatar-badge2">🏫 Purdue University</div>
+      <div class="avatar-ring">
+        <img src="https://education.purdue.edu/wp-content/uploads/2025/09/RichardPrice-300x300.jpg" alt="Dr. Richard A. Price" />
+      </div>
+      <div class="avatar-badge">🎓 Ph.D. UIUC 2024</div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-number">10+</div><div class="stat-label">Years Experience</div></div>
+  <div class="stat-item"><div class="stat-number">3</div><div class="stat-label">Master's Degrees</div></div>
+  <div class="stat-item"><div class="stat-number">10+</div><div class="stat-label">Publications</div></div>
+  <div class="stat-item"><div class="stat-number">40+</div><div class="stat-label">Presentations</div></div>
+  <div class="stat-item"><div class="stat-number">4</div><div class="stat-label">Funded Grants</div></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <span class="section-eyebrow">About</span>
+  <h2 class="section-title">Dr. Richard<br><em>A. Price</em></h2>
+  <div class="about-grid fade-in">
+    <div class="about-text">
+      <p>I'm Dr. Richard A. Price — a white cis-gendered gay scholar and Assistant Professor of Special Education and Applied Behavior Analysis in the Educational Studies Department at Purdue University's College of Education.</p>
+      <p>Dr. Price has over a decade of experience supporting the transition from school to work for individuals with disabilities. This commitment was shaped by growing up with a family member with a disability and witnessing firsthand the systemic shortcomings in including people with disabilities in education and society.</p>
+      <p>Dr. Price's work sits at the intersection of vocational assessment, self-determination, adaptive sport, ethics in applied behavior analysis, and the intersection of Disability and LGBTQ+ identities. Dr. Price co-founded The Next Step Programs (TNS), a nonprofit supporting individuals with IDD transitioning to employment, independent living, and postsecondary education, and currently provides sexuality and healthy relationship education at the Wabash Center in Lafayette, IN.</p>
+    </div>
+    <div class="highlight-cards">
+      <div class="hcard"><h4>Research Focus</h4><p>Transition from school to work for students with significant support needs — vocational assessments, self-determination, and career development.</p></div>
+      <div class="hcard"><h4>Teaching Philosophy</h4><p>Rigorous thinking doesn't have to be joyless. Dr. Price has been ranked as an excellent teacher by students multiple semesters running at UIUC and now at Purdue.</p></div>
+      <div class="hcard"><h4>Identity &amp; Advocacy</h4><p>Passionate about the intersection of Disability and LGBTQ+ identities and committed to inclusive, affirming practice in education, research, and community.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <span class="section-eyebrow">Background</span>
+  <h2 class="section-title">Education &amp;<br><em>Credentials</em></h2>
+  <div class="edu-grid fade-in">
+    <div class="edu-card">
+      <div class="edu-year">2024</div>
+      <div class="edu-degree">Ph.D. — Special Education</div>
+      <div class="edu-school">University of Illinois Urbana-Champaign</div>
+      <div class="edu-detail">Transition to Work for Students with Disabilities<br>Advisors: Amber Ray, Ph.D. &amp; Emily Tarconish, Ph.D.</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2019</div>
+      <div class="edu-degree">M.S. — Kinesiology</div>
+      <div class="edu-school">Michigan State University</div>
+      <div class="edu-detail">Cognitive and Motor Neuroscience</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2018</div>
+      <div class="edu-degree">M.A. — Applied Behavior Analysis</div>
+      <div class="edu-school">Michigan State University</div>
+      <div class="edu-detail">Specialization: Autism · Advisor: Marisa Fisher, Ph.D.</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2016</div>
+      <div class="edu-degree">M.A. — Rehabilitation Counseling</div>
+      <div class="edu-school">Michigan State University</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2014</div>
+      <div class="edu-degree">B.A. — Kinesiology &amp; Dance (Minor)</div>
+      <div class="edu-school">Michigan State University</div>
+      <div class="edu-detail">Pre-Professional &amp; Adaptive Sports</div>
+    </div>
+  </div>
+  <span class="certs-label">Certifications &amp; Licenses</span>
+  <div class="certs-wrap fade-in">
+    <span class="cert-pill">BCBA-D</span>
+    <span class="cert-pill">CRC</span>
+    <span class="cert-pill">CVE</span>
+    <span class="cert-pill">PEERS Trainer</span>
+    <span class="cert-pill">LEND Trainee</span>
+    <span class="cert-pill">Elevatus Sexuality Educator</span>
+  </div>
+</section>
+
+<!-- AS SEEN IN -->
+<section id="media">
+  <span class="section-eyebrow">In The Community</span>
+  <h2 class="section-title">As Seen<br><em>In…</em></h2>
+  <div class="media-grid fade-in">
+    <div class="media-card">
+      <h4>Purdue College of Education Feature</h4>
+      <p>Dr. Price creates transformative experience for special ed majors &amp; community.</p>
+      <a href="https://education.purdue.edu/2025/07/price-creates-transformative-experience-for-special-ed-majors-community/" target="_blank">Read Story ↗</a>
+    </div>
+    <div class="media-card">
+      <h4>CASE Leadership Cohort</h4>
+      <p>Dr. Price selected for CASE Special Education Leadership Institute, Cohort 2 — driving impact across Indiana and nationally.</p>
+      <a href="https://education.purdue.edu/news/2025/09/24/price-selected-for-case-cohort-driving-impact-across-indiana-and-nationally/" target="_blank">Read Story ↗</a>
+    </div>
+    <div class="media-card">
+      <h4>Purdue IPE Initiative</h4>
+      <p>Purdue's IPE program shines, serving Greater Lafayette high-intensity needs K-6 students &amp; training master's students.</p>
+      <a href="https://education.purdue.edu/2025/02/purdues-ipe-shines-serves-greater-lafayette-high-intensity-needs-k-6-students-trains-masters-students/" target="_blank">Read Story ↗</a>
+    </div>
+    <div class="media-card">
+      <h4>Podcast Guest: Supporting Transition</h4>
+      <p>Dr. Price as guest on podcast discussing supporting student transition from school to employment.</p>
+      <a href="https://cooperantlearning.com/supporting-student-transition-from-school-to-employment/" target="_blank">Listen ↗</a>
+    </div>
+    <div class="media-card">
+      <h4>Nicole For Love Autobiography</h4>
+      <p>Dr. Price contributed to the autobiography of Nicole For Love and appeared as a podcast guest.</p>
+      <a href="https://www.youtube.com/watch?v=43-Th80cyak" target="_blank">Watch Podcast ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <span class="section-eyebrow">Scholarship</span>
+  <h2 class="section-title">Research &amp;<br><em>Publications</em></h2>
+  <p class="research-intro fade-in">Dr. Price's research centers on transition from school to work for individuals with disabilities — specifically examining vocational assessments and the services that enhance student self-determination and advocacy in career development. Dr. Price is also deeply interested in adaptive sport/dance, ethics in ABA practice, interdisciplinary collaboration, and the intersection of Disability and LGBTQ+ identities.</p>
+
+  <!-- PUBLICATION CAROUSEL -->
+  <div class="pub-carousel-wrap fade-in">
+    <div class="pub-carousel-header">
+      <span class="pub-carousel-label">Selected Publications</span>
+      <div class="pub-carousel-controls">
+        <button class="pub-btn pub-prev" aria-label="Previous">&#8592;</button>
+        <span class="pub-counter"><span id="pub-current">1</span> of <span id="pub-total">10</span></span>
+        <button class="pub-btn pub-next" aria-label="Next">&#8594;</button>
+        <button class="pub-btn pub-pause-btn" id="pub-pause-btn">⏸</button>
+      </div>
+    </div>
+    <div class="pub-viewport">
+      <div class="pub-track" id="pub-track">
+
+        <div class="pub-slide">
+          <span class="pub-badge badge-press">In Press</span>
+          <div class="pub-slide-title">Characteristics of qualitative research in behavior analytic journals: A Scoping review.</div>
+          <div class="pub-slide-journal">Behavior Analysis in Practice</div>
+          <div class="pub-slide-authors">Martin Loya, M. R., Price, R., Alqunaysi, R., et al.</div>
+        </div>
+
+        <div class="pub-slide">
+          <span class="pub-badge badge-press">In Press</span>
+          <div class="pub-slide-title">"More than just taking off your shoes": A mixed methods study of cultural adaptation practices in the autism service system.</div>
+          <div class="pub-slide-journal">Journal of Autism and Developmental Disorders</div>
+          <div class="pub-slide-authors">Dueñas, A.D., Gómez, L.R., Martin Loya, M., Price, R., et al.</div>
+        </div>
+
+        <div class="pub-slide">
+          <span class="pub-badge badge-pub">2025</span>
+          <div class="pub-slide-title">"A life that feeds her soul." Caregivers' perspectives of their youth with significant disabilities transition to employment.</div>
+          <div class="pub-slide-journal">Inclusion, 13(4)</div>
+          <div class="pub-slide-authors">Price, R. A., Brenner, H., Donnelly, N., Li, C., &amp; Ray, A.</div>
+          <a href="https://doi.org/10.1352/2326-6988-13.4.296" target="_blank" class="pub-slide-link">doi.org/10.1352/2326-6988-13.4.296 ↗</a>
+        </div>
+
+        <div class="pub-slide">
+          <span class="pub-badge badge-pub">2024</span>
+          <div class="pub-slide-title">Educational Leaders' Insights on PBPD, Implementation, and Sustainability Practices of SRSD, a Writing EBP.</div>
+          <div class="pub-slide-journal">Journal of School Leadership</div>
+          <div class="pub-slide-authors">Connor, K. E., Ray, A. B., &amp; Price, R. A.</div>
+          <a href="https://doi.org/10.1177/10526846241292633" target="_blank" class="pub-slide-link">doi.org ↗</a>
+        </div>
+
+        <div class="pub-slide">
+          <span class="pub-badge badge-pub">2024</span>
+          <div class="pub-slide-title">Exploring employer's successful hiring and retention practices of individuals with disabilities.</div>
+          <div class="pub-slide-journal">Rehabilitation Counseling Bulletin</div>
+          <div class="pub-slide-authors">George Strauser, D., Price, R.A., Brehmer, C.E. &amp; Strauser, D.R.</div>
+          <a href="https://doi.org/10.1177/00343552241265319" target="_blank" class="pub-slide-link">doi.org ↗</a>
+        </div>
+
+        <div class="pub-slide">
+          <span class="pub-badge badge-pub">2024</span>
+          <div class="pub-slide-title">The case for early transition-planning for students with significant support needs: Implications for policy and practice.</div>
+          <div class="pub-slide-journal">Inclusive Practices</div>
+          <div class="pub-slide-authors">Williams, C. S. &amp; Price, R. A.</div>
+          <a href="https://doi.org/10.1177/27324745231218671" target="_blank" class="pub-slide-link">doi.org ↗</a>
+        </div>
+
+        <div class="pub-slide">
+          <span class="pub-badge badge-pub">2024</span>
+          <div class="pub-slide-title">The Ethical Landscape of Behavior Analysis Forums on Reddit.</div>
+          <div class="pub-slide-journal">Behavior Analysis in Practice</div>
+          <div class="pub-slide-authors">Price, R. A., Martin, M., Folkerts, R., &amp; Haidar, B. S.</div>
+          <a href="https://doi.org/10.1007/s40617-024-00921-5" target="_blank" class="pub-slide-link">doi.org ↗</a>
+        </div>
+
+        <div class="pub-slide">
+          <span class="pub-badge badge-pub">2023</span>
+          <div class="pub-slide-title">Invisibly invisible: An LGBTQ+ self-advocate perspective on the anti-LGBTQ+ movement.</div>
+          <div class="pub-slide-journal">Inclusive Practices, 2(4), 110–112</div>
+          <div class="pub-slide-authors">Price, R. A., Adler, N. &amp; Gilmartin, E.</div>
+          <a href="https://doi.org/10.1177/27324745231209759" target="_blank" class="pub-slide-link">doi.org ↗</a>
+        </div>
+
+        <div class="pub-slide">
+          <span class="pub-badge badge-pub">2023</span>
+          <div class="pub-slide-title">Engaging families in special education assessment processes.</div>
+          <div class="pub-slide-journal">Meaningful and Active Engagement: IEP, Transition and Technology Integration. IGI Global.</div>
+          <div class="pub-slide-authors">Donnelly, N. &amp; Price, R. A.</div>
+        </div>
+
+        <div class="pub-slide">
+          <span class="pub-badge badge-pub">2018</span>
+          <div class="pub-slide-title">Teaching young adults with IDD community-based navigation skills to take public transportation.</div>
+          <div class="pub-slide-journal">Behavior Analysis in Practice, 11, 46–50</div>
+          <div class="pub-slide-authors">Price, R. A., Marsh, A. J., Fisher, M. H.</div>
+        </div>
+
+      </div>
+    </div>
+    <div class="pub-dots" id="pub-dots"></div>
+  </div>
+
+  <span class="grants-header">Funded Grants &amp; Fellowships</span>
+  <div class="grants-grid fade-in">
+    <div class="grant-card">
+      <h4>Project EVALUATE:1 (2024–2025)</h4>
+      <p>Exploring the Vocational Assessment Landscape in Understanding Assessments in Transition Education for Students with Significant Support Needs. Purdue University.</p>
+      <span class="grant-amount">$5,000</span>
+    </div>
+    <div class="grant-card">
+      <h4>Academic Book Seed Funding (2024–2025)</h4>
+      <p>The Real People of Work: The Experience of Disability and Work. College of Education and Office of Research, Purdue University.</p>
+      <span class="grant-amount">$6,000</span>
+    </div>
+    <div class="grant-card">
+      <h4>DARTS Broadening Inclusion Grant (2022–2023)</h4>
+      <p>Disability, Arts, and Sports. University of Illinois Urbana-Champaign.</p>
+      <span class="grant-amount">$5,000</span>
+    </div>
+    <div class="grant-card">
+      <h4>Community Response Project (2020–2021)</h4>
+      <p>Online Transition Programs and Advocacy. Pennsylvania Developmental Disabilities Council (PADDC).</p>
+      <span class="grant-amount">$5,000</span>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses">
+  <span class="section-eyebrow">In The Classroom</span>
+  <h2 class="section-title">Courses Dr. Price<br><em>Teaches</em></h2>
+  <div class="courses-stack fade-in">
+    <div class="course-card">
+      <div class="course-num">EDPS 326</div>
+      <div class="course-body">
+        <h4>Health, Wellness, and Adapted Physical Education</h4>
+        <p>Redesigned by Dr. Price to integrate public health frameworks. Piloted AI chat engine in Brightspace.</p>
+      </div>
+      <div class="course-badges"><span class="course-badge badge-ug">Undergraduate</span></div>
+    </div>
+    <div class="course-card">
+      <div class="course-num">EDPS 211</div>
+      <div class="course-body">
+        <h4>Special Education Law, Policy, and Ethical Guidelines</h4>
+        <p>Foundational legal and ethical frameworks governing special education practice and policy.</p>
+      </div>
+      <div class="course-badges"><span class="course-badge badge-ug">Undergraduate</span></div>
+    </div>
+    <div class="course-card">
+      <div class="course-num">EDPS 549</div>
+      <div class="course-body">
+        <h4>Verbal Behavior</h4>
+        <p>Online synchronous course for graduate students covering verbal behavior theory and application.</p>
+      </div>
+      <div class="course-badges"><span class="course-badge badge-grad">Graduate</span></div>
+    </div>
+    <div class="course-card">
+      <div class="course-num">EDPS 664</div>
+      <div class="course-body">
+        <h4>Doctoral Seminar: Research Dissemination</h4>
+        <p>Advanced seminar for special education doctoral students on research dissemination strategies.</p>
+      </div>
+      <div class="course-badges"><span class="course-badge badge-grad">Doctoral</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESENTATIONS -->
+<section id="presentations">
+  <span class="section-eyebrow">Scholarship in Action</span>
+  <h2 class="section-title">Selected<br><em>Presentations</em></h2>
+  <p class="research-intro fade-in">Dr. Price presents nationally and internationally on transition, vocational assessment, LGBTQ+ advocacy, ABA ethics, and AI in special education. Shown below are presentations from the last five years.</p>
+
+  <div class="pub-carousel-wrap fade-in" id="pres-carousel-wrap">
+    <div class="pub-carousel-header">
+      <span class="pub-carousel-label">Recent Presentations (2021–2026)</span>
+      <div class="pub-carousel-controls">
+        <button class="pub-btn" id="pres-prev" aria-label="Previous">&#8592;</button>
+        <span class="pub-counter"><span id="pres-current">1</span> of <span id="pres-total">18</span></span>
+        <button class="pub-btn" id="pres-next" aria-label="Next">&#8594;</button>
+        <button class="pub-btn pub-pause-btn" id="pres-pause-btn">⏸</button>
+      </div>
+    </div>
+    <div class="pub-viewport">
+      <div class="pub-track" id="pres-track">
+
+        <div class="pub-slide pres-slide-invited">
+          <span class="pub-badge badge-invited">2026 · Invited</span>
+          <div class="pub-slide-title">Community Impact: Celebrating collaboration, innovation, and shared growth.</div>
+          <div class="pub-slide-journal">Power Friday — Keynote Panel · Purdue University, West Lafayette, IN</div>
+        </div>
+
+        <div class="pub-slide pres-slide-natl">
+          <span class="pub-badge badge-natl">2026 · National</span>
+          <div class="pub-slide-title">How BCBAs and School Personnel Collaborate in Schools.</div>
+          <div class="pub-slide-journal">Division of Autism and Developmental Disabilities (DADD) · Long Beach, CA</div>
+          <div class="pub-slide-authors">Price, R. A., Donnelly, N., &amp; Light-Shriner, C.</div>
+        </div>
+
+        <div class="pub-slide pres-slide-natl">
+          <span class="pub-badge badge-natl">2026 · National</span>
+          <div class="pub-slide-title">Queering Self-Determination: Empowering LGBTQ+ Students with IDD in K–12 Education.</div>
+          <div class="pub-slide-journal">SEXABA Conference · Virtual</div>
+          <div class="pub-slide-authors">Price, R. A., Pulos, J., &amp; Adler, N.</div>
+        </div>
+
+        <div class="pub-slide pres-slide-intl">
+          <span class="pub-badge badge-intl">2025 · International</span>
+          <div class="pub-slide-title">Project EVALUATE:1 — A Systematic Assessment Review of Vocational Assessments for Students with Significant Support Needs. (3 presentations)</div>
+          <div class="pub-slide-journal">bi-annual International ABAI Conference · Lisbon, Portugal</div>
+        </div>
+
+        <div class="pub-slide pres-slide-natl">
+          <span class="pub-badge badge-natl">2025 · National</span>
+          <div class="pub-slide-title">Project EVALUATE:1: A Systematic Assessment Review and Analysis of Work-Based Vocational Assessments.</div>
+          <div class="pub-slide-journal">TASH Conference · Denver, CO</div>
+        </div>
+
+        <div class="pub-slide pres-slide-natl">
+          <span class="pub-badge badge-natl">2025 · National</span>
+          <div class="pub-slide-title">Preparing Students with Disabilities for an AI Workforce: A Discussion.</div>
+          <div class="pub-slide-journal">TASH Conference · Denver, CO</div>
+          <div class="pub-slide-authors">Price, R. A., &amp; Prince, A.</div>
+        </div>
+
+        <div class="pub-slide pres-slide-natl">
+          <span class="pub-badge badge-natl">2025 · National</span>
+          <div class="pub-slide-title">Finding Your Personal and Professional Fit.</div>
+          <div class="pub-slide-journal">TASH ECRN Panel Presentation · Denver, CO</div>
+          <div class="pub-slide-authors">Price, R. A., Bacon, J., &amp; McCabe, K.</div>
+        </div>
+
+        <div class="pub-slide pres-slide-natl">
+          <span class="pub-badge badge-natl">2025 · National</span>
+          <div class="pub-slide-title">GenAI for Students with Complex Disabilities: Assessment to Practice.</div>
+          <div class="pub-slide-journal">Division of Career Development and Transition (DCDT) · Denver, CO</div>
+          <div class="pub-slide-authors">Prince, A., &amp; Price, R. A.</div>
+        </div>
+
+        <div class="pub-slide pres-slide-natl">
+          <span class="pub-badge badge-natl">2025 · National</span>
+          <div class="pub-slide-title">Supporting LGBTQ+ Staff in ABA Clinics: Ethical and Inclusive Practices.</div>
+          <div class="pub-slide-journal">SEXABA Conference · Virtual</div>
+          <div class="pub-slide-authors">Gilbert, E., &amp; Price, R. A.</div>
+        </div>
+
+        <div class="pub-slide pres-slide-natl">
+          <span class="pub-badge badge-natl">2024 · National</span>
+          <div class="pub-slide-title">"...they told us we had to use it" Special Educators' Vocational Assessment Practices.</div>
+          <div class="pub-slide-journal">Division of Career Development and Transition (DCDT) · Chantilly, VA</div>
+        </div>
+
+        <div class="pub-slide pres-slide-natl">
+          <span class="pub-badge badge-natl">2024 · National</span>
+          <div class="pub-slide-title">"I learned a lot about myself:" Supporting Students with Significant Support Needs to Create Work-Related Goals and Objectives.</div>
+          <div class="pub-slide-journal">DCDT · Chantilly, VA</div>
+        </div>
+
+        <div class="pub-slide pres-slide-natl">
+          <span class="pub-badge badge-natl">2024 · National</span>
+          <div class="pub-slide-title">Engaging families in special education assessments: Utilizing a 3 step process.</div>
+          <div class="pub-slide-journal">Division on Autism and Developmental Disabilities (DADD) · Honolulu, HI</div>
+          <div class="pub-slide-authors">Price, R. A., &amp; Donnelly, N.</div>
+        </div>
+
+        <div class="pub-slide pres-slide-natl">
+          <span class="pub-badge badge-natl">2024 · National</span>
+          <div class="pub-slide-title">"Say Gay" — Educators supporting individuals with IDD in the LGBTQ+ community.</div>
+          <div class="pub-slide-journal">Division on Autism and Developmental Disabilities (DADD) · Honolulu, HI</div>
+          <div class="pub-slide-authors">Price, R. A., &amp; Gilmartin, E.</div>
+        </div>
+
+        <div class="pub-slide pres-slide-natl">
+          <span class="pub-badge badge-natl">2023 · National</span>
+          <div class="pub-slide-title">Exemplary employers' perspectives on hiring and employing persons with disabilities.</div>
+          <div class="pub-slide-journal">AUCD · Washington D.C.</div>
+          <div class="pub-slide-authors">Strauser, G. S. &amp; Price, R. A.</div>
+        </div>
+
+        <div class="pub-slide pres-slide-natl">
+          <span class="pub-badge badge-natl">2023 · National</span>
+          <div class="pub-slide-title">Breaking down barriers: Entering the workforce through self-advocacy.</div>
+          <div class="pub-slide-journal">American Association of Intellectual and Developmental Disabilities (AAIDD) · Pittsburgh, PA</div>
+          <div class="pub-slide-authors">Price, R. A., &amp; Fields, J.</div>
+        </div>
+
+        <div class="pub-slide pres-slide-intl">
+          <span class="pub-badge badge-intl">2022 · International</span>
+          <div class="pub-slide-title">The transition from school to work: Caregivers' perspectives for youth with significant disabilities.</div>
+          <div class="pub-slide-journal">bi-annual International ABAI Conference · Dublin, Ireland</div>
+          <div class="pub-slide-authors">Price, R. A., &amp; Donnelly, N.</div>
+        </div>
+
+        <div class="pub-slide pres-slide-invited">
+          <span class="pub-badge badge-invited">2022 · Invited</span>
+          <div class="pub-slide-title">Vocational assessments for students with significant support needs.</div>
+          <div class="pub-slide-journal">Illinois Statewide Transition Conference · Peoria, IL</div>
+        </div>
+
+        <div class="pub-slide pres-slide-natl">
+          <span class="pub-badge badge-natl">2021 · National</span>
+          <div class="pub-slide-title">Caregivers' perspectives on the transition from school to adulthood: Preliminary results.</div>
+          <div class="pub-slide-journal">TASH Conference · Virtual</div>
+          <div class="pub-slide-authors">Price, R. A., Brenner, H., Donnelly, N., &amp; Li, C.</div>
+        </div>
+
+      </div>
+    </div>
+    <div class="pub-dots" id="pres-dots"></div>
+  </div>
+</section>
+
+<!-- SERVICES PLACEHOLDER -->
+<section id="services">
+  <span class="section-eyebrow">What Dr. Price Offers</span>
+  <h2 class="section-title">Services &amp;<br><em>Consulting</em></h2>
+  <div class="services-coming fade-in">
+    <div class="services-coming-inner">
+      <div class="services-coming-icon">🚧</div>
+      <h3>Coming Soon</h3>
+      <p>Dr. Price offers a range of professional services including consulting, workshops, training, and community presentations. Full details on services, rates, and availability will be added here shortly.</p>
+      <a href="#contact" class="btn-send" style="display:inline-block; margin-top:1.5rem; text-decoration:none;">Inquire About Services →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE -->
+<section id="service">
+  <span class="section-eyebrow">Giving Back</span>
+  <h2 class="section-title">Service &amp;<br><em>Leadership</em></h2>
+  <div class="service-grid fade-in">
+    <div class="service-card">
+      <h4>Editorial &amp; Peer Review</h4>
+      <div class="service-item">Journal of Autism and Developmental Disabilities (JADD)</div>
+      <div class="service-item">Exceptional Children</div>
+      <div class="service-item">Journal of Applied Research in Intellectual Disabilities</div>
+      <div class="service-item">Behavior Analysis in Practice</div>
+      <div class="service-item">Journal of Positive Behavior Interventions</div>
+      <div class="service-item">Journal of Special Education Technology</div>
+    </div>
+    <div class="service-card">
+      <h4>Professional Leadership</h4>
+      <div class="service-item">IN*SOURCE Board Member &amp; Secretary (2025–Present)</div>
+      <div class="service-item">DCDT Publication &amp; Research Committees (2023–Present)</div>
+      <div class="service-item">TASH Early Career Research Community (2021–Present)</div>
+      <div class="service-item">Purdue AI Working Group (2024–Present)</div>
+      <div class="service-item">CASE Special Education Leadership Institute, Cohort 2 (2025)</div>
+    </div>
+    <div class="service-card">
+      <h4>Community Impact</h4>
+      <div class="service-item">The Next Step Programs (TNS) — Co-Founder (2014–2023)</div>
+      <div class="service-item">Wabash Center Sexuality Education (Present)</div>
+      <div class="service-item">Service-Learning Fellow, Purdue (2025)</div>
+      <div class="service-item">Broader Impact Fellow, Purdue (Spring 2026)</div>
+      <div class="service-item">Global Autism Project, Skills Corps — Kenya (2018–2021)</div>
+    </div>
+    <div class="service-card">
+      <h4>Student Leadership</h4>
+      <div class="service-item">SEGSA President (2022–2023), UIUC</div>
+      <div class="service-item">DEI Committee Member, UIUC Special Ed (2023–2024)</div>
+      <div class="service-item">Doctoral Advisor: Sariya (Present)</div>
+      <div class="service-item">Pre-Lim Committee: Yichen Wang, Fan Cao, Shen Yilin</div>
+      <div class="service-item">Undergraduate Research Mentor (2025)</div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <span class="section-eyebrow">Recognition</span>
+  <h2 class="section-title">Awards &amp;<br><em>Honors</em></h2>
+  <div class="awards-grid fade-in">
+    <div class="award-card"><div class="award-year">2025</div><div class="award-text"><h4>Wabash Center Exemplary Community Partner Award</h4><p>Inaugural recipient</p></div></div>
+    <div class="award-card"><div class="award-year">2025</div><div class="award-text"><h4>Dean's Faculty Conference Travel Support Award</h4><p>College of Education, Purdue University</p></div></div>
+    <div class="award-card"><div class="award-year">2025</div><div class="award-text"><h4>International Travel Award</h4><p>Purdue University · $2,000</p></div></div>
+    <div class="award-card"><div class="award-year">2024</div><div class="award-text"><h4>DCDT Travel Scholarship Award</h4><p>Division of Career Development and Transition · $1,250</p></div></div>
+    <div class="award-card"><div class="award-year">2023</div><div class="award-text"><h4>List of Teachers Ranked as Excellent by Their Students</h4><p>University of Illinois Urbana-Champaign (Fall 2023)</p></div></div>
+    <div class="award-card"><div class="award-year">2023</div><div class="award-text"><h4>Impact Award — Research Live! Competition</h4><p>University of Illinois Urbana-Champaign · $200</p></div></div>
+    <div class="award-card"><div class="award-year">2022</div><div class="award-text"><h4>List of Teachers Ranked as Excellent by Their Students</h4><p>University of Illinois Urbana-Champaign (Spring 2022)</p></div></div>
+    <div class="award-card"><div class="award-year">2020</div><div class="award-text"><h4>Special Recognition — Graduate Student Leadership Award</h4><p>Graduate College, University of Illinois Urbana-Champaign</p></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <span class="section-eyebrow">Let's Connect</span>
+  <h2 class="section-title">Get In Touch<br>with <em>Dr. Price</em></h2>
+  <div class="contact-grid fade-in">
+    <div class="contact-info">
+      <p>Whether you're a prospective student, a potential collaborator, a researcher, or just want to say hello — Dr. Richard A. Price would love to hear from you.</p>
+      <div class="contact-details">
+        <div class="contact-row">
+          <div class="contact-icon-wrap">📧</div>
+          <div class="contact-text"><a href="mailto:price368@purdue.edu">price368@purdue.edu</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon-wrap">📞</div>
+          <div class="contact-text"><span>(765) 494-4730</span></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon-wrap">🏛️</div>
+          <div class="contact-text">
+            <span>Purdue University College of Education</span>
+            <span>Beering Hall (BRNG 5144)</span>
+            <span>100 N. University St., West Lafayette, IN 47907</span>
+          </div>
+        </div>
+      </div>
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/dr-richard-a-price-59315325/" target="_blank" class="social-pill li">LinkedIn</a>
+        <a href="https://www.researchgate.net/profile/Richard-Price-26" target="_blank" class="social-pill rg">ResearchGate</a>
+        <a href="https://www.instagram.com/_drrichardaprice/" target="_blank" class="social-pill ig">Instagram</a>
+        <a href="https://x.com/DRichardaprice" target="_blank" class="social-pill tw">X / Twitter</a>
+        <a href="https://orcid.org/0000-0002-3935-7686" target="_blank" class="social-pill orcid">ORCID</a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <input type="text" placeholder="Your Name">
+      <input type="email" placeholder="Your Email">
+      <input type="text" placeholder="Subject">
+      <textarea placeholder="Your message to Dr. Price..."></textarea>
+      <button class="btn-send">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">Dr. Richard A. Price</span>
+  <p>© 2025 Dr. Richard A. Price · Purdue University College of Education</p>
+  <p>Built with care ✦</p>
+</footer>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Reusable carousel initializer
+  function initCarousel({ trackId, dotsId, currentId, totalId, prevId, nextId, pauseId, interval }) {
+    const track = document.getElementById(trackId);
+    if (!track) return;
+    const slides = track.querySelectorAll('.pub-slide');
+    const dotsContainer = document.getElementById(dotsId);
+    const currentEl = document.getElementById(currentId);
+    const totalEl = document.getElementById(totalId);
+    const pauseBtn = document.getElementById(pauseId);
+    let current = 0;
+    let paused = false;
+    let autoTimer = null;
+
+    if (totalEl) totalEl.textContent = slides.length;
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'pub-dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(idx) {
+      current = (idx + slides.length) % slides.length;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      if (currentEl) currentEl.textContent = current + 1;
+      dotsContainer.querySelectorAll('.pub-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function startAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => { if (!paused) goTo(current + 1); }, interval || 4000);
+    }
+
+    document.getElementById(prevId)?.addEventListener('click', () => goTo(current - 1));
+    document.getElementById(nextId)?.addEventListener('click', () => goTo(current + 1));
+    pauseBtn?.addEventListener('click', () => {
+      paused = !paused;
+      pauseBtn.textContent = paused ? '▶' : '⏸';
+    });
+    track.addEventListener('mouseenter', () => { paused = true; });
+    track.addEventListener('mouseleave', () => { paused = false; });
+
+    goTo(0);
+    startAuto();
+  }
+
+  // Publications carousel
+  initCarousel({
+    trackId: 'pub-track', dotsId: 'pub-dots',
+    currentId: 'pub-current', totalId: 'pub-total',
+    prevId: 'pub-prev', nextId: 'pub-next', pauseId: 'pub-pause-btn',
+    interval: 4500
+  });
+
+  // Presentations carousel (slightly slower so there's time to read)
+  initCarousel({
+    trackId: 'pres-track', dotsId: 'pres-dots',
+    currentId: 'pres-current', totalId: 'pres-total',
+    prevId: 'pres-prev', nextId: 'pres-next', pauseId: 'pres-pause-btn',
+    interval: 5000
+  });
+</script>
+</body>
+</html>
