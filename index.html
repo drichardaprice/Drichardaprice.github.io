@@ -354,8 +354,9 @@
   footer p { font-size: 0.8rem; color: rgba(255,255,255,0.35); }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
-  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .fade-in { opacity: 1; transform: translateY(0); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .fade-in.animate { opacity: 0; transform: translateY(24px); }
+  .fade-in.animate.visible { opacity: 1; transform: translateY(0); }
 
   .badge-intl  { background: #E0F4FF; color: var(--sky); }
   .badge-natl  { background: #FFF5E0; color: var(--orange); }
@@ -1072,11 +1073,14 @@
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Scroll fade-in
+  // Scroll fade-in — content visible by default, animation is enhancement only
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  document.querySelectorAll('.fade-in').forEach(el => {
+    el.classList.add('animate');
+    observer.observe(el);
+  });
 
   // ── ORBIT ANIMATION ──
   window.addEventListener('load', function() {
