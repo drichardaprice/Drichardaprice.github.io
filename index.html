@@ -77,11 +77,31 @@
   .btn-ghost:hover { background: rgba(255,255,255,0.15); }
 
   .hero-visual { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; animation: fadeUp 0.7s 0.2s ease both; }
-  .avatar-wrap { position: relative; display: inline-block; }
-  .avatar-ring { width: 340px; height: 340px; border-radius: 50%; padding: 6px; background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.3) 50%, #fff 100%); box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+
+  /* ORBITING AVATAR — JS handles all animation */
+  .orbit-system { position: relative; width: 500px; height: 500px; display: flex; align-items: center; justify-content: center; }
+  .avatar-ring { width: 240px; height: 240px; border-radius: 50%; padding: 5px; background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.4) 50%, #fff 100%); box-shadow: 0 20px 60px rgba(0,0,0,0.25); position: absolute; z-index: 2; top: 50%; left: 50%; transform: translate(-50%,-50%); }
   .avatar-ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
-  .avatar-badge { position: absolute; bottom: 16px; right: -12px; background: var(--yellow); color: var(--ink); padding: 0.5rem 1.1rem; border-radius: 30px; font-size: 0.78rem; font-weight: 700; white-space: nowrap; box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
-  .avatar-badge2 { position: absolute; top: 20px; left: -20px; background: var(--teal); color: white; padding: 0.45rem 1rem; border-radius: 30px; font-size: 0.75rem; font-weight: 700; white-space: nowrap; box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+  .orbit-track { display: none; } /* tracks not needed — JS positions directly */
+  .orb {
+    position: absolute;
+    padding: 0.42rem 0.85rem;
+    border-radius: 30px;
+    font-size: 0.7rem; font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    color: white;
+    z-index: 5;
+    transform-origin: center center;
+    /* NO rotation CSS — JS sets transform each frame */
+  }
+  .orb-pink   { background: var(--pink); }
+  .orb-teal   { background: var(--teal); }
+  .orb-purple { background: var(--purple); }
+  .orb-orange { background: var(--orange); }
+  .orb-sky    { background: var(--sky); }
+  .orb-lime   { background: var(--lime); color: var(--ink); }
+  .orb-yellow { background: var(--yellow); color: var(--ink); }
 
   /* STATS */
   .stats-bar { background: var(--ink); padding: 2rem 4rem; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; text-align: center; }
@@ -415,6 +435,10 @@
     footer { padding: 1.5rem; flex-direction: column; text-align: center; }
     .pub-slide { padding: 1.5rem; }
     .pub-slide-title { font-size: 1rem; }
+    .orbit-system { width: 320px; height: 320px; }
+    .avatar-ring { width: 160px; height: 160px; }
+    .orbit-track { width: 310px !important; height: 310px !important; }
+    .orb { font-size: 0.58rem; padding: 0.3rem 0.55rem; }
   }
 </style>
 </head>
@@ -448,12 +472,22 @@
     </div>
   </div>
   <div class="hero-visual">
-    <div class="avatar-wrap">
-      <div class="avatar-badge2">🏫 Purdue University</div>
+    <div class="orbit-system">
+
+      <!-- Photo at center -->
       <div class="avatar-ring">
         <img src="https://education.purdue.edu/wp-content/uploads/2025/09/RichardPrice-300x300.jpg" alt="Dr. Richard A. Price" />
       </div>
-      <div class="avatar-badge">🎓 Ph.D. UIUC 2024</div>
+
+      <!-- Each orbit-track rotates independently, carrying its bubble around the circle -->
+      <div class="orbit-track"><div class="orb orb-pink">🎓 Ph.D. Special Education, UIUC</div></div>
+      <div class="orbit-track"><div class="orb orb-purple">🧠 M.A. Applied Behavior Analysis</div></div>
+      <div class="orbit-track"><div class="orb orb-sky">♿ M.A. Rehabilitation Counseling</div></div>
+      <div class="orbit-track"><div class="orb orb-teal">🏃 M.S. Kinesiology</div></div>
+      <div class="orbit-track"><div class="orb orb-yellow">🎓 B.A. Kinesiology &amp; Dance</div></div>
+      <div class="orbit-track"><div class="orb orb-orange">📋 BCBA-D · CRC · CVE</div></div>
+      <div class="orbit-track"><div class="orb orb-lime">🏫 Asst. Professor, Purdue University</div></div>
+
     </div>
   </div>
 </section>
@@ -703,7 +737,7 @@
         <h3>Coming Soon</h3>
         <p>Dr. Richard A. Price is launching the <strong>WERK Lab</strong> at Purdue University — a research laboratory dedicated to studying and improving the transition from school to work for individuals with disabilities.</p>
         <p>Full details on the lab's mission, current projects, team members, and opportunities to get involved are coming soon. Check back shortly or reach out to Dr. Price directly.</p>
-        <a href="#contact" class="btn-send" style="display:inline-block; margin-top:1.5rem; text-decoration:none;">Get In Touch About WERK →</a>
+        <a href="werk.html" target="_blank" class="btn-send" style="display:inline-block; margin-top:1.5rem; text-decoration:none;">Visit the WERK Lab →</a>
       </div>
     </div>
     <div class="werk-pillars">
@@ -998,7 +1032,7 @@
       <div class="contact-details">
         <div class="contact-row">
           <div class="contact-icon-wrap">📧</div>
-          <div class="contact-text"><a href="mailto:price368@purdue.edu">price368@purdue.edu</a></div>
+          <div class="contact-text"><a href="/cdn-cgi/l/email-protection#dbaba9b2b8bee8ede39babaea9bfaebef5bebfae"><span class="__cf_email__" data-cfemail="3343415a505600050b734346415746561d565746">[email&#160;protected]</span></a></div>
         </div>
         <div class="contact-row">
           <div class="contact-icon-wrap">📞</div>
@@ -1037,12 +1071,45 @@
   <p>Built with care ✦</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Scroll fade-in
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── ORBIT ANIMATION ──
+  window.addEventListener('load', function() {
+    const system = document.querySelector('.orbit-system');
+    if (!system) return;
+    const bubbles = Array.from(system.querySelectorAll('.orb'));
+    if (!bubbles.length) return;
+
+    const RADIUS = 220;
+    const SPEED  = 0.00025;
+    const COUNT  = bubbles.length;
+    const startAngles = bubbles.map((_, i) => (2 * Math.PI / COUNT) * i);
+
+    // Make sure bubbles are visible and positioned
+    bubbles.forEach(b => {
+      b.style.position = 'absolute';
+      b.style.display  = 'block';
+    });
+
+    function tick(timestamp) {
+      bubbles.forEach((bubble, i) => {
+        const angle = startAngles[i] + timestamp * SPEED;
+        const x = Math.cos(angle) * RADIUS;
+        const y = Math.sin(angle) * RADIUS;
+        const hw = bubble.offsetWidth  / 2 || 60;
+        const hh = bubble.offsetHeight / 2 || 14;
+        bubble.style.left = (250 + x - hw) + 'px';
+        bubble.style.top  = (250 + y - hh) + 'px';
+      });
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
 
   // Reusable carousel initializer
   function initCarousel({ trackId, dotsId, currentId, totalId, prevId, nextId, pauseId, interval }) {
@@ -1098,13 +1165,4 @@
     interval: 4500
   });
 
-  // Presentations carousel (slightly slower so there's time to read)
-  initCarousel({
-    trackId: 'pres-track', dotsId: 'pres-dots',
-    currentId: 'pres-current', totalId: 'pres-total',
-    prevId: 'pres-prev', nextId: 'pres-next', pauseId: 'pres-pause-btn',
-    interval: 5000
-  });
-</script>
-</body>
-</html>
+  // Presentations carousel
