@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WERK Lab | Workforce Equity Resources & Knowledge</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink:    #FF2D78;
+  --coral:   #FF5C35;
+  --orange:  #FF8C00;
+  --yellow:  #FFD100;
+  --lime:    #7ED321;
+  --teal:    #00C9B1;
+  --sky:     #00AAFF;
+  --purple:  #8B00FF;
+  --lavender:#C044FF;
+  --ink:     #0D0D1A;
+  --white:   #FFFFFF;
+  --offwhite:#FFF8F0;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--ink); color: var(--white); overflow-x: hidden; }
+
+/* ── RAINBOW BAR ── */
+.rainbow-bar { height: 5px; background: linear-gradient(90deg, var(--pink), var(--orange), var(--yellow), var(--lime), var(--teal), var(--sky), var(--purple), var(--lavender), var(--pink)); }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 5px; left: 0; right: 0; z-index: 200;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 4rem;
+  background: rgba(13,13,26,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem; letter-spacing: 3px;
+  background: linear-gradient(90deg, var(--pink), var(--yellow));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.nav-logo span { font-family: 'DM Sans', sans-serif; font-size: 0.65rem; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; display: block; color: rgba(255,255,255,0.45); -webkit-text-fill-color: rgba(255,255,255,0.45); margin-top: -4px; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.75rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--yellow); }
+.nav-back { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: white !important; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.72rem !important; transition: background 0.2s !important; }
+.nav-back:hover { background: rgba(255,255,255,0.15) !important; color: white !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  padding: 10rem 4rem 6rem;
+  position: relative; overflow: hidden;
+}
+/* Animated gradient mesh background */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 20% 40%, rgba(255,45,120,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 80% 20%, rgba(139,0,255,0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 60% 80%, rgba(0,201,177,0.12) 0%, transparent 70%),
+    var(--ink);
+  animation: meshShift 12s ease-in-out infinite alternate;
+}
+@keyframes meshShift {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+/* Big decorative WERK letters behind */
+.hero-bg-text {
+  position: absolute; bottom: -60px; right: -40px; z-index: 0;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(200px, 30vw, 380px);
+  line-height: 1;
+  color: rgba(255,255,255,0.03);
+  letter-spacing: -10px;
+  pointer-events: none; user-select: none;
+}
+.hero-content { position: relative; z-index: 2; max-width: 800px; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--yellow); margin-bottom: 1.5rem;
+  animation: fadeUp 0.5s ease both;
+}
+.hero-eyebrow::before { content: ''; width: 32px; height: 2px; background: var(--yellow); display: block; }
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(5rem, 14vw, 13rem);
+  line-height: 0.88;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.5s 0.1s ease both;
+}
+.hero-title .w { color: var(--pink); }
+.hero-title .e { color: var(--yellow); }
+.hero-title .r { color: var(--teal); }
+.hero-title .k { color: var(--lavender); }
+.hero-fullname {
+  font-size: 1rem; font-weight: 300; letter-spacing: 4px; text-transform: uppercase;
+  color: rgba(255,255,255,0.5); margin-bottom: 2.5rem;
+  animation: fadeUp 0.5s 0.2s ease both;
+}
+.hero-fullname strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+.hero-mission {
+  font-size: 1.2rem; line-height: 1.8; color: rgba(255,255,255,0.8);
+  max-width: 620px; margin-bottom: 3rem; font-weight: 300;
+  border-left: 3px solid var(--pink); padding-left: 1.5rem;
+  animation: fadeUp 0.5s 0.3s ease both;
+}
+.hero-mission em { color: var(--yellow); font-style: normal; font-weight: 600; }
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.5s 0.4s ease both; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  color: white; padding: 0.9rem 2rem; border-radius: 30px;
+  text-decoration: none; font-weight: 600; font-size: 0.9rem;
+  box-shadow: 0 8px 24px rgba(255,45,120,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(255,45,120,0.5); }
+.btn-outline {
+  border: 1.5px solid rgba(255,255,255,0.3); color: white;
+  padding: 0.9rem 2rem; border-radius: 30px;
+  text-decoration: none; font-weight: 600; font-size: 0.9rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-outline:hover { border-color: var(--yellow); background: rgba(255,209,0,0.08); }
+
+/* Scroll indicator */
+.scroll-hint { position: absolute; bottom: 2.5rem; left: 4rem; z-index: 2; display: flex; align-items: center; gap: 0.75rem; color: rgba(255,255,255,0.3); font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; animation: fadeUp 0.5s 0.6s ease both; }
+.scroll-hint::after { content: ''; width: 40px; height: 1px; background: rgba(255,255,255,0.3); display: block; }
+
+/* ── SHARED ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+section { padding: 7rem 4rem; }
+.eyebrow {
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase;
+  margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.6rem;
+}
+.eyebrow::before { content: ''; width: 24px; height: 2px; display: block; }
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem;
+}
+.section-title em { font-style: italic; }
+
+/* ── STATS STRIP ── */
+.stats-strip {
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  padding: 3rem 4rem;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1rem; text-align: center;
+}
+.stat-block { padding: 1rem; border-right: 1px solid rgba(255,255,255,0.15); }
+.stat-block:last-child { border-right: none; }
+.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; letter-spacing: 2px; line-height: 1; color: var(--yellow); }
+.stat-lbl { font-size: 0.72rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-top: 0.25rem; }
+
+/* ── MISSION ── */
+#mission { background: var(--ink); }
+#mission .eyebrow { color: var(--pink); }
+#mission .eyebrow::before { background: var(--pink); }
+.mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.mission-text p { font-size: 1.05rem; line-height: 1.9; color: rgba(255,255,255,0.7); margin-bottom: 1.25rem; }
+.mission-text p strong { color: var(--white); }
+.mission-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.pillar {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px; padding: 1.5rem;
+  transition: background 0.2s, transform 0.2s, border-color 0.2s;
+}
+.pillar:hover { background: rgba(255,255,255,0.07); transform: translateY(-4px); }
+.pillar-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+.pillar h4 { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--white); }
+.pillar p { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+.pillar:nth-child(1) { border-top: 3px solid var(--pink); }
+.pillar:nth-child(2) { border-top: 3px solid var(--teal); }
+.pillar:nth-child(3) { border-top: 3px solid var(--yellow); }
+.pillar:nth-child(4) { border-top: 3px solid var(--purple); }
+
+/* ── FOCUS AREAS ── */
+#focus { background: rgba(255,255,255,0.02); }
+#focus .eyebrow { color: var(--teal); }
+#focus .eyebrow::before { background: var(--teal); }
+.focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem; }
+.focus-card {
+  border-radius: 20px; padding: 2rem;
+  position: relative; overflow: hidden;
+  transition: transform 0.2s;
+}
+.focus-card:hover { transform: translateY(-6px); }
+.focus-card::before { content: ''; position: absolute; inset: 0; opacity: 0.12; }
+.focus-card:nth-child(1) { background: linear-gradient(135deg, rgba(255,45,120,0.15), rgba(255,45,120,0.05)); border: 1px solid rgba(255,45,120,0.25); }
+.focus-card:nth-child(2) { background: linear-gradient(135deg, rgba(0,201,177,0.15), rgba(0,201,177,0.05)); border: 1px solid rgba(0,201,177,0.25); }
+.focus-card:nth-child(3) { background: linear-gradient(135deg, rgba(255,209,0,0.15), rgba(255,209,0,0.05)); border: 1px solid rgba(255,209,0,0.25); }
+.focus-card:nth-child(4) { background: linear-gradient(135deg, rgba(139,0,255,0.15), rgba(139,0,255,0.05)); border: 1px solid rgba(139,0,255,0.25); }
+.focus-card:nth-child(5) { background: linear-gradient(135deg, rgba(0,170,255,0.15), rgba(0,170,255,0.05)); border: 1px solid rgba(0,170,255,0.25); }
+.focus-card:nth-child(6) { background: linear-gradient(135deg, rgba(255,140,0,0.15), rgba(255,140,0,0.05)); border: 1px solid rgba(255,140,0,0.25); }
+.focus-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; line-height: 1; opacity: 0.2; margin-bottom: 0.5rem; }
+.focus-card:nth-child(1) .focus-num { color: var(--pink); }
+.focus-card:nth-child(2) .focus-num { color: var(--teal); }
+.focus-card:nth-child(3) .focus-num { color: var(--yellow); }
+.focus-card:nth-child(4) .focus-num { color: var(--purple); }
+.focus-card:nth-child(5) .focus-num { color: var(--sky); }
+.focus-card:nth-child(6) .focus-num { color: var(--orange); }
+.focus-card h3 { font-weight: 700; font-size: 1rem; margin-bottom: 0.6rem; color: var(--white); }
+.focus-card p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+/* ── TEAM ── */
+#team { background: var(--ink); }
+#team .eyebrow { color: var(--yellow); }
+#team .eyebrow::before { background: var(--yellow); }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+.team-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px; padding: 2rem;
+  text-align: center;
+  transition: transform 0.2s, background 0.2s;
+  position: relative; overflow: hidden;
+}
+.team-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+.team-card:nth-child(1)::before { background: linear-gradient(90deg, var(--pink), var(--purple)); }
+.team-card:nth-child(2)::before { background: linear-gradient(90deg, var(--teal), var(--sky)); }
+.team-card:nth-child(3)::before { background: linear-gradient(90deg, var(--yellow), var(--orange)); }
+.team-card:nth-child(4)::before { background: linear-gradient(90deg, var(--purple), var(--lavender)); }
+.team-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.07); }
+.team-avatar {
+  width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 1rem;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: white;
+}
+.team-card:nth-child(1) .team-avatar { background: linear-gradient(135deg, var(--pink), var(--purple)); }
+.team-card:nth-child(2) .team-avatar { background: linear-gradient(135deg, var(--teal), var(--sky)); }
+.team-card:nth-child(3) .team-avatar { background: linear-gradient(135deg, var(--yellow), var(--orange)); color: var(--ink); }
+.team-card:nth-child(4) .team-avatar { background: linear-gradient(135deg, var(--purple), var(--lavender)); }
+.team-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 900; color: var(--white); margin-bottom: 0.3rem; }
+.team-role { font-size: 0.75rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.75rem; }
+.team-bio { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+.team-note { margin-top: 2.5rem; text-align: center; color: rgba(255,255,255,0.35); font-size: 0.85rem; font-style: italic; }
+.team-note a { color: var(--teal); text-decoration: none; }
+.team-note a:hover { text-decoration: underline; }
+
+/* ── PROJECTS ── */
+#projects { background: rgba(255,255,255,0.02); }
+#projects .eyebrow { color: var(--lavender); }
+#projects .eyebrow::before { background: var(--lavender); }
+.projects-coming {
+  display: flex; justify-content: center; align-items: center; padding: 3rem 0;
+}
+.projects-coming-inner {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 24px; padding: 3.5rem 4rem; text-align: center; max-width: 580px;
+  border-top: 4px solid var(--lavender);
+}
+.projects-coming-inner .icon { font-size: 3rem; margin-bottom: 1rem; }
+.projects-coming-inner h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--white); margin-bottom: 1rem; }
+.projects-coming-inner p { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.8; }
+
+/* ── JOIN ── */
+#join {
+  background: linear-gradient(135deg, #0D0D1A 0%, #1a0a2e 50%, #0D0D1A 100%);
+  text-align: center; position: relative; overflow: hidden;
+}
+#join::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(255,45,120,0.1) 0%, transparent 70%);
+}
+#join .eyebrow { color: var(--pink); justify-content: center; }
+#join .eyebrow::before { background: var(--pink); }
+#join .section-title { color: var(--white); }
+#join .section-title em { color: var(--yellow); }
+.join-content { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; }
+.join-content p { font-size: 1.05rem; color: rgba(255,255,255,0.65); line-height: 1.85; margin-bottom: 2.5rem; }
+.join-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 3rem; text-align: left; }
+.join-card {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px; padding: 1.5rem;
+}
+.join-card h4 { font-weight: 700; font-size: 0.9rem; color: var(--white); margin-bottom: 0.4rem; }
+.join-card p { font-size: 0.8rem; color: rgba(255,255,255,0.45); line-height: 1.55; margin-bottom: 0; }
+.join-card:nth-child(1) { border-top: 3px solid var(--pink); }
+.join-card:nth-child(2) { border-top: 3px solid var(--teal); }
+.join-card:nth-child(3) { border-top: 3px solid var(--yellow); }
+
+/* ── FOOTER ── */
+footer {
+  background: rgba(0,0,0,0.4);
+  padding: 3rem 4rem;
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  flex-wrap: wrap; gap: 1.5rem;
+}
+.footer-brand .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 3px; background: linear-gradient(90deg, var(--pink), var(--yellow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.footer-brand p { font-size: 0.78rem; color: rgba(255,255,255,0.3); margin-top: 0.25rem; }
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
+.footer-links a:hover { color: var(--yellow); }
+.footer-pi { font-size: 0.78rem; color: rgba(255,255,255,0.3); text-align: right; }
+.footer-pi a { color: var(--teal); text-decoration: none; }
+.footer-pi a:hover { text-decoration: underline; }
+
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero { padding: 8rem 1.5rem 5rem; }
+  section { padding: 5rem 1.5rem; }
+  .mission-grid, .focus-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .focus-grid { grid-template-columns: 1fr 1fr; }
+  .join-cards { grid-template-columns: 1fr; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); padding: 2rem 1.5rem; }
+  footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+  .footer-pi { text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="rainbow-bar"></div>
+
+<nav>
+  <div class="nav-logo">
+    WERK
+    <span>Workforce Equity Resources &amp; Knowledge</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#focus">Focus Areas</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#join">Join Us</a></li>
+    <li><a href="https://drichardaprice.github.io" target="_blank" class="nav-back">← Dr. Price's Site</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">WERK</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Purdue University · College of Education</div>
+    <h1 class="hero-title">
+      <span class="w">W</span><span class="e">E</span><span class="r">R</span><span class="k">K</span>
+    </h1>
+    <p class="hero-fullname"><strong>Workforce Equity</strong> Resources &amp; Knowledge Lab</p>
+    <p class="hero-mission">
+      The WERK Lab is dedicated to advancing <em>equitable workforce outcomes</em> for individuals with disabilities — through rigorous research, practitioner training, policy advocacy, and community-centered tools that make a real difference in real people's lives.
+    </p>
+    <div class="hero-ctas">
+      <a href="#mission" class="btn-primary">Our Mission</a>
+      <a href="#join" class="btn-outline">Join the Lab</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll to explore</div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip fade-in">
+  <div class="stat-block"><div class="stat-num">4+</div><div class="stat-lbl">Active Research Projects</div></div>
+  <div class="stat-block"><div class="stat-num">10+</div><div class="stat-lbl">Publications</div></div>
+  <div class="stat-block"><div class="stat-num">$21K+</div><div class="stat-lbl">Funded Research</div></div>
+  <div class="stat-block"><div class="stat-num">2014</div><div class="stat-lbl">Community Work Began</div></div>
+</div>
+
+<!-- MISSION -->
+<section id="mission">
+  <div class="eyebrow" style="color:var(--pink)"><span style="width:24px;height:2px;background:var(--pink);display:block"></span>Mission &amp; Vision</div>
+  <div class="mission-grid fade-in">
+    <div class="mission-text">
+      <h2 class="section-title">Why <em>WERK</em><br>Exists</h2>
+      <p>Too many individuals with disabilities — especially those with significant support needs, and those who also identify as LGBTQ+ — are left out of meaningful workforce conversations. Systems fail them. Schools underestimate them. Employers overlook them.</p>
+      <p>The <strong>WERK Lab</strong> exists to change that. We conduct research that centers the voices of transition-age youth and adults with disabilities, train the next generation of special educators and rehabilitation counselors, and develop practical tools that help practitioners do their jobs better.</p>
+      <p>Our work sits at the intersection of <strong>vocational assessment, self-determination, disability identity, and workforce equity</strong> — and we believe that when individuals with disabilities thrive at work, communities are stronger for it.</p>
+      <a href="#join" class="btn-primary" style="display:inline-block; margin-top:1.5rem; text-decoration:none;">Get Involved →</a>
+    </div>
+    <div class="mission-pillars">
+      <div class="pillar">
+        <div class="pillar-icon">🔬</div>
+        <h4>Research</h4>
+        <p>Rigorous, community-centered mixed-methods research that advances knowledge in transition and workforce equity.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🎓</div>
+        <h4>Training</h4>
+        <p>Preparing future special educators and rehabilitation professionals to be champions of equity and inclusion.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🛠️</div>
+        <h4>Resources</h4>
+        <p>Developing practical, accessible tools and frameworks that translate research into real-world practice.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">📣</div>
+        <h4>Advocacy</h4>
+        <p>Informing policy and amplifying the voices of individuals with disabilities in systems that affect their lives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOCUS AREAS -->
+<section id="focus">
+  <div class="eyebrow" style="color:var(--teal)"><span style="width:24px;height:2px;background:var(--teal);display:block"></span>What We Study</div>
+  <h2 class="section-title fade-in">Research <em>Focus<br>Areas</em></h2>
+  <div class="focus-grid fade-in">
+    <div class="focus-card">
+      <div class="focus-num">01</div>
+      <h3>Vocational Assessment</h3>
+      <p>Examining how vocational assessments are used — and misused — for transition-age students with significant support needs, and building better frameworks for practitioners.</p>
+    </div>
+    <div class="focus-card">
+      <div class="focus-num">02</div>
+      <h3>Self-Determination &amp; Advocacy</h3>
+      <p>Supporting individuals with disabilities to develop the skills, knowledge, and opportunities to direct their own career paths and advocate for their rights.</p>
+    </div>
+    <div class="focus-card">
+      <div class="focus-num">03</div>
+      <h3>Disability &amp; LGBTQ+ Identities</h3>
+      <p>Exploring the intersection of disability and LGBTQ+ identity in education, employment, and community life — centering voices that are too often invisible.</p>
+    </div>
+    <div class="focus-card">
+      <div class="focus-num">04</div>
+      <h3>Employer Practices</h3>
+      <p>Understanding what successful employers do differently when hiring and retaining employees with disabilities — and spreading those practices.</p>
+    </div>
+    <div class="focus-card">
+      <div class="focus-num">05</div>
+      <h3>Ethics in ABA Practice</h3>
+      <p>Investigating ethical dimensions of Applied Behavior Analysis in schools and clinical settings, with a focus on culturally responsive and affirming practice.</p>
+    </div>
+    <div class="focus-card">
+      <div class="focus-num">06</div>
+      <h3>Caregiver &amp; Family Perspectives</h3>
+      <p>Amplifying the perspectives of families and caregivers navigating transition systems alongside their loved ones with significant disabilities.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="eyebrow" style="color:var(--yellow)"><span style="width:24px;height:2px;background:var(--yellow);display:block"></span>The People</div>
+  <h2 class="section-title fade-in">Meet the <em>Team</em></h2>
+  <div class="team-grid fade-in">
+
+    <div class="team-card">
+      <div class="team-avatar">
+        <img src="https://education.purdue.edu/wp-content/uploads/2025/09/RichardPrice-300x300.jpg" alt="Dr. Richard A. Price" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" />
+      </div>
+      <div class="team-name">Dr. Richard A. Price</div>
+      <div class="team-role">Founder &amp; Principal Investigator</div>
+      <div class="team-bio">Assistant Professor of Special Education &amp; ABA at Purdue University. Scholar, advocate, and BCBA-D committed to workforce equity for individuals with disabilities.</div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-avatar">👩‍🎓</div>
+      <div class="team-name">Graduate Students</div>
+      <div class="team-role">Doctoral &amp; Master's Researchers</div>
+      <div class="team-bio">WERK Lab works closely with graduate students across special education, ABA, and rehabilitation counseling who contribute to active research projects.</div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-avatar">🤝</div>
+      <div class="team-name">Community Partners</div>
+      <div class="team-role">Collaborators &amp; Advocates</div>
+      <div class="team-bio">Our research is shaped by partnerships with disability organizations, employers, schools, and self-advocates across Indiana and beyond.</div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-avatar">✨</div>
+      <div class="team-name">You?</div>
+      <div class="team-role">Future Team Member</div>
+      <div class="team-bio">WERK Lab is growing! We are always interested in connecting with students, researchers, and practitioners who share our passion for workforce equity.</div>
+    </div>
+
+  </div>
+  <p class="team-note fade-in">Interested in joining? <a href="#join">See opportunities below</a> or <a href="https://drichardaprice.github.io#contact">contact Dr. Price directly</a>.</p>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="eyebrow" style="color:var(--lavender)"><span style="width:24px;height:2px;background:var(--lavender);display:block"></span>Current Work</div>
+  <h2 class="section-title fade-in">Research <em>Projects</em></h2>
+  <div class="projects-coming fade-in">
+    <div class="projects-coming-inner">
+      <div class="icon">🔬</div>
+      <h3>Projects Coming Soon</h3>
+      <p>The WERK Lab has several active research projects underway. Full project descriptions, findings, and resources will be posted here shortly. In the meantime, you can explore Dr. Price's published work on the main site.</p>
+      <a href="https://drichardaprice.github.io#research" target="_blank" class="btn-primary" style="display:inline-block;margin-top:1.75rem;text-decoration:none;">View Publications →</a>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section id="join">
+  <div class="join-content fade-in">
+    <div class="eyebrow" style="color:var(--pink);justify-content:center"><span style="width:24px;height:2px;background:var(--pink);display:block"></span>Get Involved</div>
+    <h2 class="section-title">Join the <em>WERK</em><br>Community</h2>
+    <p>Whether you're a prospective graduate student, an undergraduate looking for research experience, a practitioner wanting to collaborate, or an organization seeking a research partner — there's a place for you at WERK Lab.</p>
+    <div class="join-cards">
+      <div class="join-card">
+        <h4>🎓 Graduate Students</h4>
+        <p>Interested in pursuing a Master's or Ph.D. studying transition, workforce equity, or disability? Reach out to Dr. Price about opportunities.</p>
+      </div>
+      <div class="join-card">
+        <h4>🔍 Undergrad Researchers</h4>
+        <p>Purdue undergrads passionate about disability research and advocacy can inquire about research assistant positions with the lab.</p>
+      </div>
+      <div class="join-card">
+        <h4>🤝 Community Partners</h4>
+        <p>Schools, employers, disability organizations, and advocacy groups interested in research partnerships are encouraged to connect.</p>
+      </div>
+    </div>
+    <a href="https://drichardaprice.github.io#contact" target="_blank" class="btn-primary" style="text-decoration:none;">Contact Dr. Price →</a>
+  </div>
+</section>
+
+<div class="rainbow-bar"></div>
+<footer>
+  <div class="footer-brand">
+    <div class="logo">WERK Lab</div>
+    <p>Workforce Equity Resources &amp; Knowledge · Purdue University</p>
+  </div>
+  <div class="footer-links">
+    <a href="#mission">Mission</a>
+    <a href="#focus">Focus Areas</a>
+    <a href="#team">Team</a>
+    <a href="#projects">Projects</a>
+    <a href="#join">Join Us</a>
+  </div>
+  <div class="footer-pi">
+    Principal Investigator: <a href="https://drichardaprice.github.io" target="_blank">Dr. Richard A. Price</a><br>
+    <span style="opacity:0.5">© 2025 WERK Lab · Purdue University College of Education</span>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
