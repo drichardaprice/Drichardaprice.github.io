@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WERK Lab | Workforce Equity Resources & Knowledge</title>
-<meta name="description" content="The WERK Lab advances equitable workforce outcomes for individuals with disabilities through research, training, and community-centered tools.">
-<meta property="og:title" content="WERK Lab | Workforce Equity Resources & Knowledge">
-<meta property="og:description" content="Workforce Equity Resources & Knowledge — research on transition to work for individuals with disabilities.">
+<title>Consulting & Training | Dr. Richard A. Price</title>
+<meta name="description" content="BCBA supervision, ABA consulting, vocational assessment, rehabilitation counseling supervision, transition programming, and school consulting with Dr. Richard A. Price.">
+<meta property="og:title" content="Consulting & Training | Dr. Richard A. Price">
+<meta property="og:description" content="BCBA supervision, ABA consulting, vocational assessment, and transition programming consulting.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://drichardaprice.github.io/werk.html">
+<meta property="og:url" content="https://drichardaprice.github.io/consulting.html">
+<meta property="og:image" content="https://drichardaprice.github.io/images/richard-price-headshot.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WERK Lab | Workforce Equity Resources & Knowledge">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23FF2D78'/%3E%3Cstop offset='100%25' stop-color='%23FFD100'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230D0D1A'/%3E%3Ctext x='50' y='68' font-family='Arial Black,sans-serif' font-size='44' font-weight='900' fill='url(%23g)' text-anchor='middle'%3EWK%3C/text%3E%3C/svg%3E">
+<meta name="twitter:title" content="Consulting & Training | Dr. Richard A. Price">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23FF2D78'/%3E%3Cstop offset='100%25' stop-color='%238B00FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='54' font-weight='900' fill='white' text-anchor='middle'%3ERP%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -79,7 +80,7 @@ nav {
   0%   { background-position: 0% 0%; }
   100% { background-position: 100% 100%; }
 }
-/* Big decorative WERK letters behind */
+/* Big decorative surname behind */
 .hero-bg-text {
   position: absolute; bottom: -60px; right: -40px; z-index: 0;
   font-family: 'Bebas Neue', sans-serif;
@@ -97,18 +98,20 @@ nav {
   animation: fadeUp 0.5s ease both;
 }
 .hero-eyebrow::before { content: ''; width: 32px; height: 2px; background: var(--yellow); display: block; }
-.hero-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(5rem, 14vw, 13rem);
-  line-height: 0.88;
-  letter-spacing: 2px;
-  margin-bottom: 1.5rem;
+.hero-photo-ring {
+  width: 170px; height: 170px; border-radius: 50%; padding: 5px;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  box-shadow: 0 20px 50px rgba(255,45,120,0.35);
+  margin-bottom: 1.75rem;
   animation: fadeUp 0.5s 0.1s ease both;
 }
-.hero-title .w { color: var(--pink); }
-.hero-title .e { color: var(--yellow); }
-.hero-title .r { color: var(--teal); }
-.hero-title .k { color: var(--lavender); }
+.hero-photo-ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+.credential-badges { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-bottom: 2rem; animation: fadeUp 0.5s 0.2s ease both; }
+.cred-badge { padding: 0.5rem 1.15rem; border-radius: 30px; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; }
+.cred-badge.cred-pink { background: var(--pink); color: white; }
+.cred-badge.cred-yellow { background: var(--yellow); color: var(--ink); }
+.cred-badge.cred-teal { background: var(--teal); color: white; }
+.cred-badge.cred-lavender { background: var(--lavender); color: white; }
 .hero-fullname {
   font-size: 1rem; font-weight: 300; letter-spacing: 4px; text-transform: uppercase;
   color: rgba(255,255,255,0.5); margin-bottom: 2.5rem;
@@ -197,10 +200,11 @@ section { padding: 7rem 4rem; }
 .pillar:nth-child(4) { border-top: 3px solid var(--purple); }
 
 /* ── FOCUS AREAS ── */
-#focus { background: rgba(255,255,255,0.02); }
-#focus .eyebrow { color: var(--teal); }
-#focus .eyebrow::before { background: var(--teal); }
+#services { background: rgba(255,255,255,0.02); }
+#services .eyebrow { color: var(--teal); }
+#services .eyebrow::before { background: var(--teal); }
 .focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem; }
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 1rem; }
 .focus-card {
   border-radius: 20px; padding: 2rem;
   position: relative; overflow: hidden;
@@ -214,20 +218,32 @@ section { padding: 7rem 4rem; }
 .focus-card:nth-child(4) { background: linear-gradient(135deg, rgba(139,0,255,0.15), rgba(139,0,255,0.05)); border: 1px solid rgba(139,0,255,0.25); }
 .focus-card:nth-child(5) { background: linear-gradient(135deg, rgba(0,170,255,0.15), rgba(0,170,255,0.05)); border: 1px solid rgba(0,170,255,0.25); }
 .focus-card:nth-child(6) { background: linear-gradient(135deg, rgba(255,140,0,0.15), rgba(255,140,0,0.05)); border: 1px solid rgba(255,140,0,0.25); }
-.focus-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; line-height: 1; opacity: 0.2; margin-bottom: 0.5rem; }
-.focus-card:nth-child(1) .focus-num { color: var(--pink); }
-.focus-card:nth-child(2) .focus-num { color: var(--teal); }
-.focus-card:nth-child(3) .focus-num { color: var(--yellow); }
-.focus-card:nth-child(4) .focus-num { color: var(--purple); }
-.focus-card:nth-child(5) .focus-num { color: var(--sky); }
-.focus-card:nth-child(6) .focus-num { color: var(--orange); }
+.focus-num {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  opacity: 1;
+  margin-bottom: 0.85rem;
+  color: white;
+}
+.focus-card:nth-child(1) .focus-num { background: var(--pink); }
+.focus-card:nth-child(2) .focus-num { background: var(--teal); }
+.focus-card:nth-child(3) .focus-num { background: var(--yellow); color: var(--ink); }
+.focus-card:nth-child(4) .focus-num { background: var(--purple); }
+.focus-card:nth-child(5) .focus-num { background: var(--sky); }
+.focus-card:nth-child(6) .focus-num { background: var(--orange); }
 .focus-card h3 { font-weight: 700; font-size: 1rem; margin-bottom: 0.6rem; color: var(--white); }
 .focus-card p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
 
 /* ── TEAM ── */
-#team { background: var(--ink); }
-#team .eyebrow { color: var(--yellow); }
-#team .eyebrow::before { background: var(--yellow); }
+#audience { background: var(--ink); }
+#audience .eyebrow { color: var(--yellow); }
+#audience .eyebrow::before { background: var(--yellow); }
 .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
 .team-card {
   background: rgba(255,255,255,0.04);
@@ -242,6 +258,7 @@ section { padding: 7rem 4rem; }
 .team-card:nth-child(2)::before { background: linear-gradient(90deg, var(--teal), var(--sky)); }
 .team-card:nth-child(3)::before { background: linear-gradient(90deg, var(--yellow), var(--orange)); }
 .team-card:nth-child(4)::before { background: linear-gradient(90deg, var(--purple), var(--lavender)); }
+.team-card:nth-child(5)::before { background: linear-gradient(90deg, var(--sky), var(--teal)); }
 .team-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.07); }
 .team-avatar {
   width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 1rem;
@@ -252,6 +269,7 @@ section { padding: 7rem 4rem; }
 .team-card:nth-child(2) .team-avatar { background: linear-gradient(135deg, var(--teal), var(--sky)); }
 .team-card:nth-child(3) .team-avatar { background: linear-gradient(135deg, var(--yellow), var(--orange)); color: var(--ink); }
 .team-card:nth-child(4) .team-avatar { background: linear-gradient(135deg, var(--purple), var(--lavender)); }
+.team-card:nth-child(5) .team-avatar { background: linear-gradient(135deg, var(--sky), var(--teal)); }
 .team-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 900; color: var(--white); margin-bottom: 0.3rem; }
 .team-role { font-size: 0.75rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.75rem; }
 .team-bio { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
@@ -260,9 +278,9 @@ section { padding: 7rem 4rem; }
 .team-note a:hover { text-decoration: underline; }
 
 /* ── PROJECTS ── */
-#projects { background: rgba(255,255,255,0.02); }
-#projects .eyebrow { color: var(--lavender); }
-#projects .eyebrow::before { background: var(--lavender); }
+#process { background: rgba(255,255,255,0.02); }
+#process .eyebrow { color: var(--lavender); }
+#process .eyebrow::before { background: var(--lavender); }
 .projects-coming {
   display: flex; justify-content: center; align-items: center; padding: 3rem 0;
 }
@@ -276,19 +294,19 @@ section { padding: 7rem 4rem; }
 .projects-coming-inner p { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.8; }
 
 /* ── JOIN ── */
-#join {
+#inquire {
   background: linear-gradient(135deg, #0D0D1A 0%, #1a0a2e 50%, #0D0D1A 100%);
   text-align: center; position: relative; overflow: hidden;
 }
-#join::before {
+#inquire::before {
   content: '';
   position: absolute; inset: 0;
   background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(255,45,120,0.1) 0%, transparent 70%);
 }
-#join .eyebrow { color: var(--pink); justify-content: center; }
-#join .eyebrow::before { background: var(--pink); }
-#join .section-title { color: var(--white); }
-#join .section-title em { color: var(--yellow); }
+#inquire .eyebrow { color: var(--pink); justify-content: center; }
+#inquire .eyebrow::before { background: var(--pink); }
+#inquire .section-title { color: var(--white); }
+#inquire .section-title em { color: var(--yellow); }
 .join-content { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; }
 .join-content p { font-size: 1.05rem; color: rgba(255,255,255,0.65); line-height: 1.85; margin-bottom: 2.5rem; }
 .join-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 3rem; text-align: left; }
@@ -324,7 +342,7 @@ footer {
   .nav-links { display: none; }
   .hero { padding: 8rem 1.5rem 5rem; }
   section { padding: 5rem 1.5rem; }
-  .mission-grid, .focus-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .mission-grid, .focus-grid, .process-grid { grid-template-columns: 1fr; gap: 2rem; }
   .focus-grid { grid-template-columns: 1fr 1fr; }
   .join-cards { grid-template-columns: 1fr; }
   .stats-strip { grid-template-columns: repeat(2, 1fr); padding: 2rem 1.5rem; }
@@ -339,34 +357,39 @@ footer {
 
 <nav>
   <div class="nav-logo">
-    WERK
-    <span>Workforce Equity Resources &amp; Knowledge</span>
+    DR. PRICE
+    <span>Consulting &amp; Training</span>
   </div>
   <ul class="nav-links">
-    <li><a href="#mission">Mission</a></li>
-    <li><a href="#focus">Focus Areas</a></li>
-    <li><a href="#team">Team</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#join">Join Us</a></li>
+    <li><a href="#mission">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#audience">Who I Serve</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#inquire">Inquire</a></li>
     <li><a href="https://drichardaprice.github.io" target="_blank" class="nav-back">← Dr. Price's Site</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-text">WERK</div>
+  <div class="hero-bg-text">PRICE</div>
   <div class="hero-content">
-    <div class="hero-eyebrow">An Independent Research Lab</div>
-    <h1 class="hero-title">
-      <span class="w">W</span><span class="e">E</span><span class="r">R</span><span class="k">K</span>
-    </h1>
-    <p class="hero-fullname"><strong>Workforce Equity</strong> Resources &amp; Knowledge Lab</p>
+    <div class="hero-eyebrow">Consulting, Supervision &amp; Training</div>
+    <div class="hero-photo-ring">
+      <img src="images/richard-price-headshot.jpg" alt="Dr. Richard A. Price" />
+    </div>
+    <div class="credential-badges">
+      <span class="cred-badge cred-pink">BCBA-D</span>
+      <span class="cred-badge cred-yellow">CRC</span>
+      <span class="cred-badge cred-teal">CVE</span>
+      <span class="cred-badge cred-lavender">Ph.D.</span>
+    </div>
     <p class="hero-mission">
-      The WERK Lab is dedicated to advancing <em>equitable workforce outcomes</em> for individuals with disabilities — through rigorous research, practitioner training, policy advocacy, and community-centered tools that make a real difference in real people's lives.
+      Dr. Richard A. Price brings four professional credentials — behavior analysis, rehabilitation counseling, vocational evaluation, and a Ph.D. in special education — together in one consulting practice built around <em>transition-age youth and young adults</em> with disabilities.
     </p>
     <div class="hero-ctas">
-      <a href="#mission" class="btn-primary">Our Mission</a>
-      <a href="#join" class="btn-outline">Join the Lab</a>
+      <a href="#services" class="btn-primary">Explore Services</a>
+      <a href="#inquire" class="btn-outline">Start a Conversation</a>
     </div>
   </div>
   <div class="scroll-hint">Scroll to explore</div>
@@ -374,158 +397,178 @@ footer {
 
 <!-- STATS -->
 <div class="stats-strip fade-in">
-  <div class="stat-block"><div class="stat-num">4+</div><div class="stat-lbl">Active Research Projects</div></div>
-  <div class="stat-block"><div class="stat-num">10+</div><div class="stat-lbl">Publications</div></div>
-  <div class="stat-block"><div class="stat-num">$21K+</div><div class="stat-lbl">Funded Research</div></div>
-  <div class="stat-block"><div class="stat-num">2014</div><div class="stat-lbl">Community Work Began</div></div>
+  <div class="stat-block"><div class="stat-num">4</div><div class="stat-lbl">Professional Credentials</div></div>
+  <div class="stat-block"><div class="stat-num">10+</div><div class="stat-lbl">Years of Direct Experience</div></div>
+  <div class="stat-block"><div class="stat-num">6</div><div class="stat-lbl">Consulting &amp; Training Services</div></div>
+  <div class="stat-block"><div class="stat-num">13+</div><div class="stat-lbl">Transition-Age Youth &amp; Young Adults</div></div>
 </div>
 
 <!-- MISSION -->
 <section id="mission">
-  <div class="eyebrow" style="color:var(--pink)"><span style="width:24px;height:2px;background:var(--pink);display:block"></span>Mission &amp; Vision</div>
+  <div class="eyebrow" style="color:var(--pink)"><span style="width:24px;height:2px;background:var(--pink);display:block"></span>Why Work With Me</div>
   <div class="mission-grid fade-in">
     <div class="mission-text">
-      <h2 class="section-title">Why <em>WERK</em><br>Exists</h2>
-      <p>Too many individuals with disabilities — especially those with significant support needs, and those who also identify as LGBTQ+ — are left out of meaningful workforce conversations. Systems fail them. Schools underestimate them. Employers overlook them.</p>
-      <p>The <strong>WERK Lab</strong> exists to change that. We conduct research that centers the voices of transition-age youth and adults with disabilities, train the next generation of special educators and rehabilitation counselors, and develop practical tools that help practitioners do their jobs better.</p>
-      <p>Our work sits at the intersection of <strong>vocational assessment, self-determination, disability identity, and workforce equity</strong> — and we believe that when individuals with disabilities thrive at work, communities are stronger for it.</p>
-      <a href="#join" class="btn-primary" style="display:inline-block; margin-top:1.5rem; text-decoration:none;">Get Involved →</a>
+      <h2 class="section-title">One Consultant,<br><em>Four Lenses</em></h2>
+      <p>Most consultants bring one lens to a case — an ABA lens, a vocational rehab lens, or a special education lens. I bring all three, plus the research background to know what's actually been shown to work.</p>
+      <p>My focus is <strong>transition</strong>: working with transition-age youth and young adults as they move from school toward independence, employment, and adulthood. That's where I've spent the last decade — building programs, running assessments, training staff, and publishing research on what makes transition planning actually work.</p>
+      <p>Whether you're a family navigating a first vocational assessment, a district building out a transition program, or an agency that needs BCBA supervision capacity, I can meet you where you are.</p>
+      <a href="#inquire" class="btn-primary" style="display:inline-block; margin-top:1.5rem; text-decoration:none;">Start a Conversation →</a>
     </div>
     <div class="mission-pillars">
       <div class="pillar">
-        <div class="pillar-icon">🔬</div>
-        <h4>Research</h4>
-        <p>Rigorous, community-centered mixed-methods research that advances knowledge in transition and workforce equity.</p>
+        <div class="pillar-icon">🧩</div>
+        <h4>Multi-Disciplinary</h4>
+        <p>Behavior analysis, rehabilitation counseling, vocational evaluation, and special education research — one consultant instead of four separate specialists.</p>
       </div>
       <div class="pillar">
-        <div class="pillar-icon">🎓</div>
-        <h4>Training</h4>
-        <p>Preparing future special educators and rehabilitation professionals to be champions of equity and inclusion.</p>
+        <div class="pillar-icon">🎯</div>
+        <h4>Transition-Focused</h4>
+        <p>Deep specialization in transition for youth and young adults, not a generalist approach spread thin.</p>
       </div>
       <div class="pillar">
-        <div class="pillar-icon">🛠️</div>
-        <h4>Resources</h4>
-        <p>Developing practical, accessible tools and frameworks that translate research into real-world practice.</p>
+        <div class="pillar-icon">📚</div>
+        <h4>Research-Backed</h4>
+        <p>An active publishing scholar — recommendations grounded in current evidence, not just experience.</p>
       </div>
       <div class="pillar">
-        <div class="pillar-icon">📣</div>
-        <h4>Advocacy</h4>
-        <p>Informing policy and amplifying the voices of individuals with disabilities in systems that affect their lives.</p>
+        <div class="pillar-icon">🤝</div>
+        <h4>Direct Experience</h4>
+        <p>10+ years doing this work directly with students, families, and staff — not just studying it from a distance.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOCUS AREAS -->
-<section id="focus">
-  <div class="eyebrow" style="color:var(--teal)"><span style="width:24px;height:2px;background:var(--teal);display:block"></span>What We Study</div>
-  <h2 class="section-title fade-in">Research <em>Focus<br>Areas</em></h2>
+<!-- SERVICES -->
+<section id="services">
+  <div class="eyebrow" style="color:var(--teal)"><span style="width:24px;height:2px;background:var(--teal);display:block"></span>What I Offer</div>
+  <h2 class="section-title fade-in">Consulting <em>&amp; Training<br>Services</em></h2>
   <div class="focus-grid fade-in">
     <div class="focus-card">
-      <div class="focus-num">01</div>
-      <h3>Vocational Assessment</h3>
-      <p>Examining how vocational assessments are used — and misused — for transition-age students with significant support needs, and building better frameworks for practitioners.</p>
+      <div class="focus-num">BCBA-D</div>
+      <h3>BCBA Supervision &amp; ABA Consulting</h3>
+      <p>Fieldwork supervision for RBTs and candidates working toward BCBA certification, plus ongoing ABA consultation for families and organizations navigating behavior support and programming.</p>
     </div>
     <div class="focus-card">
-      <div class="focus-num">02</div>
-      <h3>Self-Determination &amp; Advocacy</h3>
-      <p>Supporting individuals with disabilities to develop the skills, knowledge, and opportunities to direct their own career paths and advocate for their rights.</p>
+      <div class="focus-num">CVE</div>
+      <h3>Vocational Assessment &amp; Training</h3>
+      <p>Direct vocational assessments for individuals with disabilities, plus training for staff and organizations on how to conduct vocational assessments in-house.</p>
     </div>
     <div class="focus-card">
-      <div class="focus-num">03</div>
-      <h3>Disability &amp; LGBTQ+ Identities</h3>
-      <p>Exploring the intersection of disability and LGBTQ+ identity in education, employment, and community life — centering voices that are too often invisible.</p>
+      <div class="focus-num">CRC</div>
+      <h3>Rehabilitation Counseling Supervision</h3>
+      <p>Clinical supervision for rehabilitation counseling students and interns working toward CRC certification or completing practicum and fieldwork hours.</p>
     </div>
     <div class="focus-card">
-      <div class="focus-num">04</div>
-      <h3>Employer Practices</h3>
-      <p>Understanding what successful employers do differently when hiring and retaining employees with disabilities — and spreading those practices.</p>
+      <div class="focus-num">Core Focus</div>
+      <h3>Transition Programming Consulting</h3>
+      <p>Program design and consultation for transition-age youth and young adults — my primary area of expertise, built on 10+ years of direct programming experience.</p>
     </div>
     <div class="focus-card">
-      <div class="focus-num">05</div>
-      <h3>Interdisciplinary Training</h3>
-      <p>Preparing rehabilitation counselors, BCBAs, special educators, and other related-services professionals to collaborate effectively in supporting individuals with disabilities into meaningful employment.</p>
+      <div class="focus-num">PhD</div>
+      <h3>School &amp; District Consulting</h3>
+      <p>Consultation for schools and districts on special education programming, plus staff and teacher training on assessment practices, transition programming, and related topics.</p>
     </div>
     <div class="focus-card">
-      <div class="focus-num">06</div>
-      <h3>Caregiver &amp; Family Perspectives</h3>
-      <p>Amplifying the perspectives of families and caregivers navigating transition systems alongside their loved ones with significant disabilities.</p>
+      <div class="focus-num">PhD</div>
+      <h3>Research Consulting</h3>
+      <p>Support for organizations and researchers designing studies, evaluating programs, or analyzing outcomes related to disability, transition, and workforce equity.</p>
     </div>
   </div>
+  <p style="margin-top:1.75rem; font-size:0.85rem; color:rgba(255,255,255,0.4); font-style:italic;">Also available on request: early intervention consulting. It's not a primary focus area, but I'm happy to discuss if it fits your needs.</p>
 </section>
 
-<!-- TEAM -->
-<section id="team">
-  <div class="eyebrow" style="color:var(--yellow)"><span style="width:24px;height:2px;background:var(--yellow);display:block"></span>The People</div>
-  <h2 class="section-title fade-in">Meet the <em>Team</em></h2>
+<!-- WHO I SERVE -->
+<section id="audience">
+  <div class="eyebrow" style="color:var(--yellow)"><span style="width:24px;height:2px;background:var(--yellow);display:block"></span>Who I Work With</div>
+  <h2 class="section-title fade-in">Who I <em>Serve</em></h2>
   <div class="team-grid fade-in">
 
     <div class="team-card">
-      <div class="team-avatar">
-        <img src="images/richard-price-headshot.jpg" alt="Dr. Richard A. Price" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" />
-      </div>
-      <div class="team-name">Dr. Richard A. Price</div>
-      <div class="team-role">Founder &amp; Principal Investigator</div>
-      <div class="team-bio">Assistant Professor of Special Education &amp; ABA. Scholar and advocate credentialed as a BCBA-D, Certified Rehabilitation Counselor (CRC), and Certified Vocational Evaluator (CVE) — committed to workforce equity for individuals with disabilities.</div>
+      <div class="team-avatar">👨‍👩‍👧</div>
+      <div class="team-name">Families</div>
+      <div class="team-role">Individual &amp; Family Consulting</div>
+      <div class="team-bio">Navigating a first vocational assessment, building a behavior support plan, or figuring out what comes after graduation — I work directly with families who want an expert in their corner.</div>
     </div>
 
     <div class="team-card">
-      <div class="team-avatar">👩‍🎓</div>
-      <div class="team-name">Graduate Students</div>
-      <div class="team-role">Doctoral &amp; Master's Researchers</div>
-      <div class="team-bio">WERK Lab works closely with graduate students across special education, ABA, and rehabilitation counseling who contribute to active research projects.</div>
+      <div class="team-avatar">🏫</div>
+      <div class="team-name">Schools &amp; Districts</div>
+      <div class="team-role">Program &amp; Staff Consulting</div>
+      <div class="team-bio">Building or improving transition programming, training staff on assessment practices, or bringing in outside expertise for a specific case.</div>
     </div>
 
     <div class="team-card">
-      <div class="team-avatar">🤝</div>
-      <div class="team-name">Community Partners</div>
-      <div class="team-role">Collaborators &amp; Advocates</div>
-      <div class="team-bio">Our research is shaped by partnerships with disability organizations, employers, schools, and self-advocates across Indiana and beyond.</div>
+      <div class="team-avatar">🏢</div>
+      <div class="team-name">ABA &amp; Rehab Agencies</div>
+      <div class="team-role">Supervision &amp; Organizational Consulting</div>
+      <div class="team-bio">BCBA and CRC supervision capacity, ABA program consultation, and support navigating ethical or clinical questions.</div>
     </div>
 
     <div class="team-card">
-      <div class="team-avatar">✨</div>
-      <div class="team-name">You?</div>
-      <div class="team-role">Future Team Member</div>
-      <div class="team-bio">WERK Lab is growing! We are always interested in connecting with students, researchers, and practitioners who share our passion for workforce equity.</div>
+      <div class="team-avatar">🎓</div>
+      <div class="team-name">Aspiring BCBAs &amp; CRCs</div>
+      <div class="team-role">Fieldwork &amp; Supervision</div>
+      <div class="team-bio">RBTs and BCBA candidates completing fieldwork hours, and rehabilitation counseling students completing practicum or internship supervision.</div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-avatar">🔬</div>
+      <div class="team-name">Researchers &amp; Universities</div>
+      <div class="team-role">Research Consulting</div>
+      <div class="team-bio">Study design, program evaluation, and outcomes analysis for projects related to disability, transition, and workforce equity.</div>
     </div>
 
   </div>
-  <p class="team-note fade-in">Interested in joining? <a href="#join">See opportunities below</a> or <a href="https://drichardaprice.github.io#contact">contact Dr. Price directly</a>.</p>
+  <p class="team-note fade-in">Not sure which category fits? <a href="#inquire">Just reach out</a> — happy to talk through what you need.</p>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="eyebrow" style="color:var(--lavender)"><span style="width:24px;height:2px;background:var(--lavender);display:block"></span>Current Work</div>
-  <h2 class="section-title fade-in">Research <em>Projects</em></h2>
-  <div class="projects-coming fade-in">
-    <div class="projects-coming-inner">
-      <div class="icon">🔬</div>
-      <h3>Projects Coming Soon</h3>
-      <p>The WERK Lab has several active research projects underway. Full project descriptions, findings, and resources will be posted here shortly. In the meantime, you can explore Dr. Price's published work on the main site.</p>
-      <a href="https://drichardaprice.github.io#research" target="_blank" class="btn-primary" style="display:inline-block;margin-top:1.75rem;text-decoration:none;">View Publications →</a>
+<!-- HOW IT WORKS -->
+<section id="process">
+  <div class="eyebrow" style="color:var(--lavender)"><span style="width:24px;height:2px;background:var(--lavender);display:block"></span>Getting Started</div>
+  <h2 class="section-title fade-in">How It <em>Works</em></h2>
+  <div class="process-grid fade-in">
+    <div class="focus-card">
+      <div class="focus-num">Step 1</div>
+      <h3>Reach Out</h3>
+      <p>Send a message with what you're looking for — a family navigating an assessment, a district building a program, or an agency that needs supervision capacity. No inquiry is too small.</p>
+    </div>
+    <div class="focus-card">
+      <div class="focus-num">Step 2</div>
+      <h3>Discovery Conversation</h3>
+      <p>A short call to understand your situation, timeline, and goals, so any proposal actually fits what you need.</p>
+    </div>
+    <div class="focus-card">
+      <div class="focus-num">Step 3</div>
+      <h3>Custom Proposal</h3>
+      <p>A clear proposal covering scope, timeline, and cost — tailored to the engagement, not a one-size-fits-all package.</p>
+    </div>
+    <div class="focus-card">
+      <div class="focus-num">Step 4</div>
+      <h3>Get to Work</h3>
+      <p>Whether it's a single assessment, ongoing supervision, or a multi-month engagement, we get started on your timeline.</p>
     </div>
   </div>
 </section>
 
-<!-- JOIN -->
-<section id="join">
+<!-- INQUIRE -->
+<section id="inquire">
   <div class="join-content fade-in">
-    <div class="eyebrow" style="color:var(--pink);justify-content:center"><span style="width:24px;height:2px;background:var(--pink);display:block"></span>Get Involved</div>
-    <h2 class="section-title">Join the <em>WERK</em><br>Community</h2>
-    <p>Whether you're a prospective graduate student, an undergraduate looking for research experience, a practitioner wanting to collaborate, or an organization seeking a research partner — there's a place for you at WERK Lab.</p>
+    <div class="eyebrow" style="color:var(--pink);justify-content:center"><span style="width:24px;height:2px;background:var(--pink);display:block"></span>Let's Talk</div>
+    <h2 class="section-title">Start a <em>Conversation</em></h2>
+    <p>Every engagement is scoped to what you actually need — there's no fixed package to fit yourself into. Reach out with a bit about your situation, and I'll follow up to set up a discovery conversation.</p>
     <div class="join-cards">
       <div class="join-card">
-        <h4>🎓 Graduate Students</h4>
-        <p>Interested in pursuing a Master's or Ph.D. studying transition, workforce equity, or disability? Reach out to Dr. Price about opportunities.</p>
+        <h4>👨‍👩‍👧 Families &amp; Individuals</h4>
+        <p>Tell me what you're navigating — an assessment, a behavior plan, a transition question — and I'll let you know how I can help.</p>
       </div>
       <div class="join-card">
-        <h4>🔍 Undergrad Researchers</h4>
-        <p>Undergrads passionate about disability research and advocacy can inquire about research assistant positions with the lab.</p>
+        <h4>🏫 Schools, Districts &amp; Agencies</h4>
+        <p>Describe the project, program, or supervision need, and I'll put together a proposal scoped to your timeline and budget.</p>
       </div>
       <div class="join-card">
-        <h4>🤝 Community Partners</h4>
-        <p>Schools, employers, disability organizations, and advocacy groups interested in research partnerships are encouraged to connect.</p>
+        <h4>🎓 Fieldwork &amp; Supervision</h4>
+        <p>RBTs, BCBA candidates, and rehab counseling students — reach out about supervision availability and requirements.</p>
       </div>
     </div>
     <a href="https://drichardaprice.github.io#contact" target="_blank" class="btn-primary" style="text-decoration:none;">Contact Dr. Price →</a>
@@ -535,19 +578,19 @@ footer {
 <div class="rainbow-bar"></div>
 <footer>
   <div class="footer-brand">
-    <div class="logo">WERK Lab</div>
-    <p>Workforce Equity Resources &amp; Knowledge</p>
+    <div class="logo">Dr. Price</div>
+    <p>Consulting &amp; Training</p>
   </div>
   <div class="footer-links">
-    <a href="#mission">Mission</a>
-    <a href="#focus">Focus Areas</a>
-    <a href="#team">Team</a>
-    <a href="#projects">Projects</a>
-    <a href="#join">Join Us</a>
+    <a href="#mission">About</a>
+    <a href="#services">Services</a>
+    <a href="#audience">Who I Serve</a>
+    <a href="#process">How It Works</a>
+    <a href="#inquire">Inquire</a>
   </div>
   <div class="footer-pi">
-    Principal Investigator: <a href="https://drichardaprice.github.io" target="_blank">Dr. Richard A. Price</a><br>
-    <span style="opacity:0.5">© <span id="footer-year">2026</span> WERK Lab</span>
+    <a href="https://drichardaprice.github.io" target="_blank">Dr. Richard A. Price</a>, BCBA-D, CRC, CVE<br>
+    <span style="opacity:0.5">© <span id="footer-year">2026</span> Dr. Richard A. Price</span>
   </div>
 </footer>
 
