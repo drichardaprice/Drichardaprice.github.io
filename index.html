@@ -4,6 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dr. Richard A. Price | Purdue University</title>
+<meta name="description" content="Dr. Richard A. Price is an Assistant Professor of Special Education & Applied Behavior Analysis at Purdue University, focused on transition to work for individuals with disabilities and Disability/LGBTQ+ advocacy.">
+<meta property="og:title" content="Dr. Richard A. Price | Purdue University">
+<meta property="og:description" content="Scholar, educator, and advocate supporting the transition from school to work for individuals with disabilities.">
+<meta property="og:image" content="https://drichardaprice.github.io/images/richard-price-headshot.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://drichardaprice.github.io">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dr. Richard A. Price | Purdue University">
+<meta name="twitter:description" content="Scholar, educator, and advocate supporting the transition from school to work for individuals with disabilities.">
+<meta name="twitter:image" content="https://drichardaprice.github.io/images/richard-price-headshot.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23FF2D78'/%3E%3Cstop offset='100%25' stop-color='%238B00FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='54' font-weight='900' fill='white' text-anchor='middle'%3ERP%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -82,7 +93,6 @@
   .orbit-system { position: relative; width: 500px; height: 500px; display: flex; align-items: center; justify-content: center; }
   .avatar-ring { width: 240px; height: 240px; border-radius: 50%; padding: 5px; background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.4) 50%, #fff 100%); box-shadow: 0 20px 60px rgba(0,0,0,0.25); position: absolute; z-index: 2; top: 50%; left: 50%; transform: translate(-50%,-50%); }
   .avatar-ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
-  .orbit-track { display: none; } /* tracks not needed — JS positions directly */
   .orb {
     position: absolute;
     padding: 0.42rem 0.85rem;
@@ -191,7 +201,9 @@
   #research { background: linear-gradient(135deg, #FFF0F3 0%, #FFE8F5 100%); }
   #research .section-eyebrow { color: var(--pink); }
   #research .section-title em { color: var(--coral); }
-  .research-intro { font-size: 1rem; line-height: 1.8; color: rgba(26,26,46,0.75); max-width: 780px; margin-bottom: 2.5rem; }
+  .research-intro { font-size: 1rem; line-height: 1.8; color: rgba(26,26,46,0.75); max-width: 780px; margin-bottom: 1.25rem; }
+  .research-figure { max-width: 900px; margin: 1rem auto 3rem; }
+  .research-figure svg { width: 100%; height: auto; display: block; }
   .pubs-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
   .pub-tab { padding: 0.4rem 1.1rem; border-radius: 20px; font-size: 0.78rem; font-weight: 600; cursor: pointer; border: 2px solid rgba(26,26,46,0.15); color: rgba(26,26,46,0.5); background: white; transition: all 0.2s; }
   .pub-tab.active { background: var(--pink); border-color: var(--pink); color: white; }
@@ -438,7 +450,6 @@
     .pub-slide-title { font-size: 1rem; }
     .orbit-system { width: 320px; height: 320px; }
     .avatar-ring { width: 160px; height: 160px; }
-    .orbit-track { width: 310px !important; height: 310px !important; }
     .orb { font-size: 0.58rem; padding: 0.3rem 0.55rem; }
   }
 </style>
@@ -477,17 +488,17 @@
 
       <!-- Photo at center -->
       <div class="avatar-ring">
-        <img src="https://education.purdue.edu/wp-content/uploads/2025/09/RichardPrice-300x300.jpg" alt="Dr. Richard A. Price" />
+        <img src="images/richard-price-headshot.jpg" alt="Dr. Richard A. Price" />
       </div>
 
-      <!-- Each orbit-track rotates independently, carrying its bubble around the circle -->
-      <div class="orbit-track"><div class="orb orb-pink">🎓 Ph.D. Special Education, UIUC</div></div>
-      <div class="orbit-track"><div class="orb orb-purple">🧠 M.A. Applied Behavior Analysis</div></div>
-      <div class="orbit-track"><div class="orb orb-sky">♿ M.A. Rehabilitation Counseling</div></div>
-      <div class="orbit-track"><div class="orb orb-teal">🏃 M.S. Kinesiology</div></div>
-      <div class="orbit-track"><div class="orb orb-yellow">🎓 B.A. Kinesiology &amp; Dance</div></div>
-      <div class="orbit-track"><div class="orb orb-orange">📋 BCBA-D · CRC · CVE</div></div>
-      <div class="orbit-track"><div class="orb orb-lime">🏫 Asst. Professor, Purdue University</div></div>
+      <!-- Each orb circles independently around the photo -->
+      <div class="orb orb-pink">🎓 Ph.D. Special Education, UIUC</div>
+      <div class="orb orb-purple">🧠 M.A. Applied Behavior Analysis</div>
+      <div class="orb orb-sky">♿ M.A. Rehabilitation Counseling</div>
+      <div class="orb orb-teal">🏃 M.S. Kinesiology</div>
+      <div class="orb orb-yellow">🎓 B.A. Kinesiology &amp; Dance</div>
+      <div class="orb orb-orange">📋 BCBA-D · CRC · CVE</div>
+      <div class="orb orb-lime">🏫 Asst. Professor, Purdue University</div>
 
     </div>
   </div>
@@ -565,44 +576,82 @@
   </div>
 </section>
 
-<!-- AS SEEN IN -->
-<section id="media">
-  <span class="section-eyebrow">In The Community</span>
-  <h2 class="section-title">As Seen<br><em>In…</em></h2>
-  <div class="media-grid fade-in">
-    <div class="media-card">
-      <h4>Purdue College of Education Feature</h4>
-      <p>Dr. Price creates transformative experience for special ed majors &amp; community.</p>
-      <a href="https://education.purdue.edu/2025/07/price-creates-transformative-experience-for-special-ed-majors-community/" target="_blank">Read Story ↗</a>
-    </div>
-    <div class="media-card">
-      <h4>CASE Leadership Cohort</h4>
-      <p>Dr. Price selected for CASE Special Education Leadership Institute, Cohort 2 — driving impact across Indiana and nationally.</p>
-      <a href="https://education.purdue.edu/news/2025/09/24/price-selected-for-case-cohort-driving-impact-across-indiana-and-nationally/" target="_blank">Read Story ↗</a>
-    </div>
-    <div class="media-card">
-      <h4>Purdue IPE Initiative</h4>
-      <p>Purdue's IPE program shines, serving Greater Lafayette high-intensity needs K-6 students &amp; training master's students.</p>
-      <a href="https://education.purdue.edu/2025/02/purdues-ipe-shines-serves-greater-lafayette-high-intensity-needs-k-6-students-trains-masters-students/" target="_blank">Read Story ↗</a>
-    </div>
-    <div class="media-card">
-      <h4>Podcast Guest: Supporting Transition</h4>
-      <p>Dr. Price as guest on podcast discussing supporting student transition from school to employment.</p>
-      <a href="https://cooperantlearning.com/supporting-student-transition-from-school-to-employment/" target="_blank">Listen ↗</a>
-    </div>
-    <div class="media-card">
-      <h4>Nicole For Love Autobiography</h4>
-      <p>Dr. Price contributed to the autobiography of Nicole For Love and appeared as a podcast guest.</p>
-      <a href="https://www.youtube.com/watch?v=43-Th80cyak" target="_blank">Watch Podcast ↗</a>
-    </div>
-  </div>
-</section>
-
 <!-- RESEARCH -->
 <section id="research">
   <span class="section-eyebrow">Scholarship</span>
   <h2 class="section-title">Research &amp;<br><em>Publications</em></h2>
-  <p class="research-intro fade-in">Dr. Price's research centers on transition from school to work for individuals with disabilities — specifically examining vocational assessments and the services that enhance student self-determination and advocacy in career development. Dr. Price is also deeply interested in adaptive sport/dance, ethics in ABA practice, interdisciplinary collaboration, and the intersection of Disability and LGBTQ+ identities.</p>
+  <p class="research-intro fade-in">Dr. Price's research lives under one broad umbrella: <strong>community participation</strong> for individuals with disabilities — the full range of ways people build self-directed, meaningful lives beyond the classroom. Within that umbrella, Dr. Price's scholarship spans employment and transition to work, sexuality and healthy relationship education, independent living, self-determination and advocacy, community-engaged research, and the practitioner training that supports all of it.</p>
+  <p class="research-intro fade-in">Employment is where that work runs deepest — which is why Dr. Price founded the <a href="#werk" style="color:var(--pink); font-weight:600; text-decoration:none;">WERK Lab</a>, a research lab dedicated specifically to vocational assessment, workforce equity, and the transition from school to work for individuals with significant support needs.</p>
+
+  <div class="research-figure fade-in">
+<svg viewBox="0 0 900 680" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hubGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF2D78"/>
+      <stop offset="100%" stop-color="#8B00FF"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#1A1A2E" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- connector lines: drawn first so hub + cards cover the ends -->
+  <g stroke="#1A1A2E" stroke-opacity="0.22" stroke-width="2" stroke-dasharray="5,5">
+    <line x1="450" y1="360" x2="450" y2="125"/>
+    <line x1="450" y1="360" x2="653.5" y2="242.5"/>
+    <line x1="450" y1="360" x2="653.5" y2="477.5"/>
+    <line x1="450" y1="360" x2="450" y2="595"/>
+    <line x1="450" y1="360" x2="246.5" y2="477.5"/>
+    <line x1="450" y1="360" x2="246.5" y2="242.5"/>
+  </g>
+
+  <!-- hub -->
+  <circle cx="450" cy="360" r="100" fill="url(#hubGrad)" filter="url(#cardShadow)"/>
+  <text x="450" y="350" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-weight="900" font-size="23" fill="#FFFFFF">COMMUNITY</text>
+  <text x="450" y="376" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-weight="900" font-size="21" fill="#FFFFFF">PARTICIPATION</text>
+  <text x="450" y="397" text-anchor="middle" font-family="Arial, sans-serif" font-style="italic" font-size="11" fill="#FFFFFF" fill-opacity="0.8">the research umbrella</text>
+
+  <!-- badge above top card -->
+  <rect x="300" y="18" width="300" height="34" rx="17" fill="url(#hubGrad)"/>
+  <text x="450" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="12" fill="#FFFFFF">★ Dr. Price's core focus → WERK Lab</text>
+
+  <!-- TOP: Work & Employment -->
+  <rect x="355" y="81" width="190" height="88" rx="16" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="355" y="81" width="190" height="8" rx="4" fill="#FF2D78"/>
+  <text x="450" y="122" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="15" fill="#1A1A2E">Work &amp;</text>
+  <text x="450" y="142" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="15" fill="#1A1A2E">Employment</text>
+
+  <!-- UPPER RIGHT: Self-Determination & Advocacy -->
+  <rect x="558.5" y="198.5" width="190" height="88" rx="16" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="558.5" y="198.5" width="190" height="8" rx="4" fill="#8B00FF"/>
+  <text x="653.5" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="14" fill="#1A1A2E">Self-Determination</text>
+  <text x="653.5" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="14" fill="#1A1A2E">&amp; Advocacy</text>
+
+  <!-- LOWER RIGHT: Practitioner Training -->
+  <rect x="558.5" y="433.5" width="190" height="88" rx="16" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="558.5" y="433.5" width="190" height="8" rx="4" fill="#7ED321"/>
+  <text x="653.5" y="473" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="14" fill="#1A1A2E">Practitioner</text>
+  <text x="653.5" y="493" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="14" fill="#1A1A2E">Training</text>
+
+  <!-- BOTTOM: Sexuality & Healthy Relationships -->
+  <rect x="355" y="551" width="190" height="88" rx="16" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="355" y="551" width="190" height="8" rx="4" fill="#00C9B1"/>
+  <text x="450" y="591" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="13.5" fill="#1A1A2E">Sexuality &amp; Healthy</text>
+  <text x="450" y="611" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="13.5" fill="#1A1A2E">Relationships Ed.</text>
+
+  <!-- LOWER LEFT: Independent Living -->
+  <rect x="151.5" y="433.5" width="190" height="88" rx="16" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="151.5" y="433.5" width="190" height="8" rx="4" fill="#00AAFF"/>
+  <text x="246.5" y="473" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="14" fill="#1A1A2E">Independent</text>
+  <text x="246.5" y="493" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="14" fill="#1A1A2E">Living</text>
+
+  <!-- UPPER LEFT: Community-Engaged Research -->
+  <rect x="151.5" y="198.5" width="190" height="88" rx="16" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="151.5" y="198.5" width="190" height="8" rx="4" fill="#FF8C00"/>
+  <text x="246.5" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="14" fill="#1A1A2E">Community-Engaged</text>
+  <text x="246.5" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="14" fill="#1A1A2E">Research</text>
+</svg>
+  </div>
 
   <!-- PUBLICATION CAROUSEL -->
   <div class="pub-carousel-wrap fade-in">
@@ -720,6 +769,39 @@
       <h4>Community Response Project (2020–2021)</h4>
       <p>Online Transition Programs and Advocacy. Pennsylvania Developmental Disabilities Council (PADDC).</p>
       <span class="grant-amount">$5,000</span>
+    </div>
+  </div>
+</section>
+
+<!-- AS SEEN IN -->
+<section id="media">
+  <span class="section-eyebrow">In The Community</span>
+  <h2 class="section-title">As Seen<br><em>In…</em></h2>
+  <div class="media-grid fade-in">
+    <div class="media-card">
+      <h4>Purdue College of Education Feature</h4>
+      <p>Dr. Price creates transformative experience for special ed majors &amp; community.</p>
+      <a href="https://education.purdue.edu/2025/07/price-creates-transformative-experience-for-special-ed-majors-community/" target="_blank">Read Story ↗</a>
+    </div>
+    <div class="media-card">
+      <h4>CASE Leadership Cohort</h4>
+      <p>Dr. Price selected for CASE Special Education Leadership Institute, Cohort 2 — driving impact across Indiana and nationally.</p>
+      <a href="https://education.purdue.edu/news/2025/09/24/price-selected-for-case-cohort-driving-impact-across-indiana-and-nationally/" target="_blank">Read Story ↗</a>
+    </div>
+    <div class="media-card">
+      <h4>Purdue IPE Initiative</h4>
+      <p>Purdue's IPE program shines, serving Greater Lafayette high-intensity needs K-6 students &amp; training master's students.</p>
+      <a href="https://education.purdue.edu/2025/02/purdues-ipe-shines-serves-greater-lafayette-high-intensity-needs-k-6-students-trains-masters-students/" target="_blank">Read Story ↗</a>
+    </div>
+    <div class="media-card">
+      <h4>Podcast Guest: Supporting Transition</h4>
+      <p>Dr. Price as guest on podcast discussing supporting student transition from school to employment.</p>
+      <a href="https://cooperantlearning.com/supporting-student-transition-from-school-to-employment/" target="_blank">Listen ↗</a>
+    </div>
+    <div class="media-card">
+      <h4>Nicole For Love Autobiography</h4>
+      <p>Dr. Price contributed to the autobiography of Nicole For Love and appeared as a podcast guest.</p>
+      <a href="https://www.youtube.com/watch?v=43-Th80cyak" target="_blank">Watch Podcast ↗</a>
     </div>
   </div>
 </section>
@@ -1033,7 +1115,7 @@
       <div class="contact-details">
         <div class="contact-row">
           <div class="contact-icon-wrap">📧</div>
-          <div class="contact-text"><a href="/cdn-cgi/l/email-protection#dbaba9b2b8bee8ede39babaea9bfaebef5bebfae"><span class="__cf_email__" data-cfemail="3343415a505600050b734346415746561d565746">[email&#160;protected]</span></a></div>
+          <div class="contact-text"><a href="#" class="js-email" data-u="price368" data-d="purdue.edu">Loading…</a></div>
         </div>
         <div class="contact-row">
           <div class="contact-icon-wrap">📞</div>
@@ -1056,23 +1138,68 @@
         <a href="https://orcid.org/0000-0002-3935-7686" target="_blank" class="social-pill orcid">ORCID</a>
       </div>
     </div>
-    <div class="contact-form">
-      <input type="text" placeholder="Your Name">
-      <input type="email" placeholder="Your Email">
-      <input type="text" placeholder="Subject">
-      <textarea placeholder="Your message to Dr. Price..."></textarea>
-      <button class="btn-send">Send Message →</button>
-    </div>
+    <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="subject" placeholder="Subject">
+      <textarea name="message" placeholder="Your message to Dr. Price..." required></textarea>
+      <button type="submit" class="btn-send" id="contact-submit">Send Message →</button>
+      <p id="contact-status" style="font-size:0.85rem; margin-top:0.5rem; display:none;"></p>
+    </form>
   </div>
 </section>
 
 <footer>
   <span class="footer-name">Dr. Richard A. Price</span>
-  <p>© 2025 Dr. Richard A. Price · Purdue University College of Education</p>
+  <p>© <span id="footer-year">2026</span> Dr. Richard A. Price · Purdue University College of Education</p>
   <p>Built with care ✦</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+  // Contact form — submit via fetch so the page doesn't navigate away
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    const statusEl = document.getElementById('contact-status');
+    const submitBtn = document.getElementById('contact-submit');
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      statusEl.style.display = 'none';
+      try {
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          contactForm.reset();
+          statusEl.textContent = "Thanks — your message has been sent. Dr. Price will be in touch soon.";
+          statusEl.style.color = 'var(--teal)';
+        } else {
+          statusEl.textContent = "Something went wrong sending that. Please try again or email directly.";
+          statusEl.style.color = 'var(--pink)';
+        }
+      } catch (err) {
+        statusEl.textContent = "Something went wrong sending that. Please try again or email directly.";
+        statusEl.style.color = 'var(--pink)';
+      }
+      statusEl.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message →';
+    });
+  }
+
+  // Build email link client-side (keeps address off plain-text scrapers)
+  document.querySelectorAll('.js-email').forEach(el => {
+    const addr = el.dataset.u + '@' + el.dataset.d;
+    el.href = 'mailto:' + addr;
+    el.textContent = addr;
+  });
+
+  const footerYear = document.getElementById('footer-year');
+  if (footerYear) footerYear.textContent = new Date().getFullYear();
+
   // Scroll fade-in — content visible by default, animation is enhancement only
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
@@ -1089,7 +1216,6 @@
     const bubbles = Array.from(system.querySelectorAll('.orb'));
     if (!bubbles.length) return;
 
-    const RADIUS = 220;
     const SPEED  = 0.00025;
     const COUNT  = bubbles.length;
     const startAngles = bubbles.map((_, i) => (2 * Math.PI / COUNT) * i);
@@ -1101,14 +1227,19 @@
     });
 
     function tick(timestamp) {
+      const w = system.clientWidth;
+      const h = system.clientHeight;
+      const cx = w / 2;
+      const cy = h / 2;
+      const radius = Math.min(w, h) * 0.44;
       bubbles.forEach((bubble, i) => {
         const angle = startAngles[i] + timestamp * SPEED;
-        const x = Math.cos(angle) * RADIUS;
-        const y = Math.sin(angle) * RADIUS;
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius;
         const hw = bubble.offsetWidth  / 2 || 60;
         const hh = bubble.offsetHeight / 2 || 14;
-        bubble.style.left = (250 + x - hw) + 'px';
-        bubble.style.top  = (250 + y - hh) + 'px';
+        bubble.style.left = (cx + x - hw) + 'px';
+        bubble.style.top  = (cy + y - hh) + 'px';
       });
       requestAnimationFrame(tick);
     }
@@ -1170,3 +1301,12 @@
   });
 
   // Presentations carousel
+  initCarousel({
+    trackId: 'pres-track', dotsId: 'pres-dots',
+    currentId: 'pres-current', totalId: 'pres-total',
+    prevId: 'pres-prev', nextId: 'pres-next', pauseId: 'pres-pause-btn',
+    interval: 5000
+  });
+</script>
+</body>
+</html>
